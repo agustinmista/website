@@ -72,6 +72,7 @@ a:focus { color: #222222; }
 a:hover { color: #666666; }
 a:active { color: #222222; }
 
+
 /* -----------------------
 Layout styles
 ------------------------*/
@@ -124,11 +125,14 @@ Layout styles
 }
 
 .main li::before {
-    content: "⏺ ";
+    content: '>>= ';
+    font-weight: 900;
+    font-family: monospace;
+    /* content: "⏺ "; */
     color: #22222277;
 }
 
-.abstract {
+.justified {
     text-align: justify;
     text-justify: inter-word;
 }

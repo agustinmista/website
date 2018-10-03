@@ -1,7 +1,6 @@
 # About me
 
-<img src="assets/chalmers_logo.png" width="18%" height="18%" align="right" hspace=40px vspace=10px />
-
+<div class="justified">
 I'm PhD student at the Computer Science and Engineering department of [Chalmers
 University of Technology](https://chalmers.se) in Sweden, under the supervision
 of [Alejandro Russo](http://www.cse.chalmers.se/~russo). Previously, I received
@@ -13,8 +12,6 @@ software security. In particular, I'm interested in developing automatic testing
 tools, exploiting the statically known information of strongly typed, functional
 languages like Haskell.
 
-<img src="assets/unr_logo.png" width="18%" height="18%" align="right" hspace=40px vspace=10px />
-
 I'm a part of the [Octopi](https://octopi.chalmers.se) project, a platform for
 secure programming IoT devices using functonal programming. Additionally, I'm a
 collaborator of [QuickFuzz](http://quickfuzz.org), an experimental grammar
@@ -23,4 +20,9 @@ web browsers and image processing libraries, among other.
 
 I also really enjoy cooking and trying new food whenever possible. If there is
 something I miss from Argentina if we speak of food, they are definetely the
-[achuras](assets/achuras.jpg).
+[achuras](../assets/achuras.jpg).
+</div>
+
+<div style="text-align: center;">
+<img src="../assets/chalmers_logo.png" width="18%" height="18%" align="center" hspace=40px vspace=10px /><img src="../assets/unr_logo.png" width="18%" height="18%" align="center" hspace=40px vspace=10px />
+</div>
