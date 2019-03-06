@@ -4,7 +4,7 @@ authors: Agustín Mista
 year:    2018
 venue:   National University of Rosario
 type:    thesis
-pdf:     /assets/thesis.pdf
+pdf:     /assets/pdf/lic-thesis.pdf
 comment: Licentiate thesis (in Spanish)
 date:    2018-06-22
 ---

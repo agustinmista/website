@@ -9,7 +9,7 @@ import Hakyll
 main :: IO ()
 main = hakyll $ do
 
-  match "assets/*" $ do
+  match "assets/**/*" $ do
     route   $ idRoute
     compile $ copyFileCompiler
 
@@ -33,7 +33,16 @@ main = hakyll $ do
     compile $ do
       let context = pubCtx
       pandocCompiler
-        >>= applyPubTemplate context
+        >>= loadAndApplyTemplate "templates/pub.html" context
+        >>= applyDefaultTemplate context
+        >>= relativizeUrls
+  
+  match "teaching/*" $ version "course" $ do
+    route   $ setExtension "html"
+    compile $ do
+      let context = courseCtx
+      pandocCompiler
+        >>= loadAndApplyTemplate "templates/course.html" context
         >>= applyDefaultTemplate context
         >>= relativizeUrls
 
@@ -42,7 +51,7 @@ main = hakyll $ do
     compile $ do
       let context = postCtx
       pandocCompiler
-        >>= applyPostTemplate    context
+        >>= loadAndApplyTemplate "templates/post.html" context
         >>= applyDefaultTemplate context
         >>= relativizeUrls
 
@@ -65,8 +74,18 @@ main = hakyll $ do
       pubs <- recentFirst =<< loadPublications
       let context = pubsCtx pubs
       newItem
-        >>= applyPubArchiveTemplate context
-        >>= applyDefaultTemplate    context
+        >>= loadAndApplyTemplate "templates/pub-archive.html" context
+        >>= applyDefaultTemplate context
+        >>= relativizeUrls
+  
+  create ["teaching/index.html"] $ do
+    route   $ idRoute
+    compile $ do
+      courses <- recentFirst =<< loadCourses
+      let context = coursesCtx courses
+      newItem
+        >>= loadAndApplyTemplate "templates/course-archive.html" context
+        >>= applyDefaultTemplate context
         >>= relativizeUrls
 
   create ["blog/index.html"] $ do
@@ -75,35 +94,22 @@ main = hakyll $ do
       posts <- recentFirst =<< loadPosts
       let context = blogCtx posts
       newItem
-        >>= applyPostArchiveTemplate context
-        >>= applyDefaultTemplate     context
+        >>= loadAndApplyTemplate "templates/post-archive.html" context
+        >>= applyDefaultTemplate context
         >>= relativizeUrls
 
 
-
-applyDefaultTemplate :: Context a -> Item a -> Compiler (Item String)
-applyDefaultTemplate = loadAndApplyTemplate "templates/default.html"
-
-applyPubArchiveTemplate :: Context a -> Item a -> Compiler (Item String)
-applyPubArchiveTemplate = loadAndApplyTemplate "templates/pub-archive.html"
-
-applyPostArchiveTemplate :: Context a -> Item a -> Compiler (Item String)
-applyPostArchiveTemplate = loadAndApplyTemplate "templates/post-archive.html"
-
-applyPubTemplate :: Context a -> Item a -> Compiler (Item String)
-applyPubTemplate = loadAndApplyTemplate "templates/pub.html"
-
-applyPostTemplate :: Context a -> Item a -> Compiler (Item String)
-applyPostTemplate = loadAndApplyTemplate "templates/post.html"
-
-
+-- Loaders
 loadPublications :: Compiler [Item String]
 loadPublications = loadAll ("publications/*" .&&. hasVersion "pub")
 
 loadPosts :: Compiler [Item String]
 loadPosts = loadAll ("blog/*" .&&. hasVersion "post")
 
+loadCourses :: Compiler [Item String]
+loadCourses = loadAll ("teaching/*" .&&. hasVersion "course")
 
+-- Item collection contexts
 indexCtx :: [Item String] -> [Item String] -> Context String
 indexCtx posts pubs
   =  listField  "pubs"  pubCtx  (pure pubs)
@@ -115,11 +121,17 @@ pubsCtx pubs
   =  listField  "pubs"  pubCtx (pure pubs)
   <> defaultContext
 
+coursesCtx :: [Item String] -> Context String
+coursesCtx courses
+  =  listField  "courses"  courseCtx (pure courses)
+  <> defaultContext
+
 blogCtx :: [Item String] -> Context String
 blogCtx posts
   =  listField  "posts" postCtx (pure posts)
   <> defaultContext
 
+-- Single item contexts
 postCtx :: Context String
 postCtx
   =  dateField "date" "%B %e, %Y"
@@ -128,13 +140,19 @@ postCtx
 pubCtx :: Context String
 pubCtx = defaultContext
 
+courseCtx :: Context String
+courseCtx = defaultContext
+
+
+-- Utilities
+applyDefaultTemplate :: Context a -> Item a -> Compiler (Item String)
+applyDefaultTemplate = loadAndApplyTemplate "templates/default.html"
 
 takeRecent :: [Item String] -> Compiler [Item String]
 takeRecent = fmap (take 4) . recentFirst
 
 newItem :: Monoid m => Compiler (Item m)
 newItem = makeItem mempty
-
 
 niceRoute :: Routes
 niceRoute = customRoute createIndexRoute

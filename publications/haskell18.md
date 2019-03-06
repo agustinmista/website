@@ -4,7 +4,7 @@ authors: Agustín Mista, Alejandro Russo and John Hughes
 year:    2018
 venue:   ACM SIGPLAN Haskell Symposium
 type:    conf
-pdf:     /assets/bp.pdf
+pdf:     /assets/pdf/haskell18.pdf
 cite:    https://dl.acm.org/citation.cfm?doid=3242744.3242747
 date:    2018-09-28
 ---

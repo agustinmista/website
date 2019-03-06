@@ -20,9 +20,9 @@ web browsers and image processing libraries, among other.
 
 I also really enjoy cooking and trying new food whenever possible. If there is
 something I miss from Argentina if we speak of food, they are definetely the
-[achuras](../assets/achuras.jpg).
+[achuras](../assets/img/achuras.jpg).
 </div>
 
 <div style="text-align: center;">
-<img src="../assets/chalmers_logo.png" width="18%" height="18%" align="center" hspace=40px vspace=10px /><img src="../assets/unr_logo.png" width="18%" height="18%" align="center" hspace=40px vspace=10px />
+<img src="../assets/img/chalmers_logo.png" width="18%" height="18%" align="center" hspace=40px vspace=10px /><img src="../assets/img/unr_logo.png" width="18%" height="18%" align="center" hspace=40px vspace=10px />
 </div>

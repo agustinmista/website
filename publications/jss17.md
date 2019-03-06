@@ -4,7 +4,7 @@ authors: Gustavo Grieco, Martin Ceresa, Agustín Mista and Pablo Buiras
 year:    2017
 venue:   Journal of Systems and Software
 type:    journal
-pdf:     /assets/qf.pdf
+pdf:     /assets/pdf/jss17.pdf
 cite:    https://dl.acm.org/citation.cfm?id=3163968
 date:    2017-12-01
 ---

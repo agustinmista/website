@@ -30,7 +30,7 @@ Nam euismod tellus id erat.
 
 Images are inserted using the following syntax. Captions are optional.
 
-![This is a caption.](/assets/lambda.png){ width=20% }
+![This is a caption.](/assets/img/lambda.png){ width=20% }
 
 ## Math
 

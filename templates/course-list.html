@@ -1,0 +1,9 @@
+$for(courses)$
+<blockquote style="padding: 0.5em; margin: 0 0 1em">
+    <span>
+      <a href="$url$" style="font-weight:bold;">$title$</a>.
+    </span>
+    <br /> $period$. $role$. $if(comment)$ $comment$. $endif$
+    <br /> Course responsible: $responsible$.
+</blockquote>
+$endfor$
