@@ -11,6 +11,7 @@ Wed 6/3 Exercise session (theory):
 ----------------------------------
 
 * [Questions](../assets/pdf/db-ex-theory.pdf)
+* [Solutions](../assets/pdf/db-sol-theory.pdf)
 * [Recap slides on RA](../assets/pdf/db-ra-slides.pdf)
 * [SQL and Java code (zipped)](../assets/code/db-users.zip)
 

@@ -5,7 +5,7 @@ year:    2019
 venue:   14th IEEE/ACM International Workshop on Automation of Software Test
 type:    workshop
 pdf:     /assets/pdf/ast19.pdf
-comment: To appear
+cite:    https://dl.acm.org/citation.cfm?id=3338669
 date:    2019-05-27
 ---
 
