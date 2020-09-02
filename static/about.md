@@ -14,7 +14,7 @@ languages like Haskell.
 
 I'm a part of the [Octopi](https://octopi.chalmers.se) project, a platform for
 secure programming IoT devices using functonal programming. Additionally, I'm a
-collaborator of [QuickFuzz](http://quickfuzz.cifasis-conicet.gov.ar/), an
+collaborator of [QuickFuzz](https://github.com/CIFASIS/QuickFuzz), an
 experimental grammar fuzzer written in Haskell that discovered a bunch of
 zero-day vulnerabilities on web browsers and image processing libraries, among
 other.

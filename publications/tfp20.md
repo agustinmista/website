@@ -5,7 +5,7 @@ year:    2020
 venue:   21st International Symposium on Trends in Functional Programming
 type:    symposium
 pdf:     /assets/pdf/tfp20.pdf
-comment: To appear
+cite:    https://link.springer.com/chapter/10.1007/978-3-030-57761-2_2
 date:    2020-02-13
 ---
 
