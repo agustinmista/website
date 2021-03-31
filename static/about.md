@@ -1,7 +1,7 @@
 # About me
 
 <div class="justified">
-I'm PhD student at the Computer Science and Engineering department of [Chalmers
+I'm a PhD student at the Computer Science and Engineering department of [Chalmers
 University of Technology](https://chalmers.se) in Sweden, under the supervision
 of [Alejandro Russo](http://www.cse.chalmers.se/~russo). Previously, I received
 a Licentiate Degree in Computer Science at the [National University of

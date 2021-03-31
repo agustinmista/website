@@ -5,7 +5,7 @@ year:    2020
 venue:   ACM SIGSAC 15th Workshop on Programming Languages and Analysis for Security
 type:    workshop
 pdf:     /assets/pdf/plas20.pdf
-comment: To appear
+cite:    https://dl.acm.org/doi/10.1145/3411506.3417595
 date:    2020-11-13
 ---
 
