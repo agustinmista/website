@@ -5,6 +5,7 @@ year:    2019
 venue:   31st Symposium on Implementation and Application of Functional Languages
 type:    workshop
 pdf:     /assets/pdf/ifl19.pdf
+cite:    https://dl.acm.org/doi/abs/10.1145/3412932.3412943   
 date:    2019-09-25
 ---
 
