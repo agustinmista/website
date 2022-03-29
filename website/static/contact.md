@@ -1,6 +1,6 @@
 # Contact
 
-**Email:** ![](/assets/img/email.png){ width=150px }
+**Email:** ![lastname at chalmers dot se](/assets/img/email.png){ width=150px }
 
 **GitHub:** [\@agustinmista](https://github.com/agustinmista)
 
