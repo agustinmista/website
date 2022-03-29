@@ -49,4 +49,4 @@ jobs:
       run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
     
     - name: Deploy with rsync
-      run: rsync -Pavr _site/. ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:{{ secrets.SSH_WWW }}
+      run: rsync -Pavr _site/. ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_WWW }}
