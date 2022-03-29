@@ -8,7 +8,7 @@ import Hakyll
 -- Site builder
 
 main :: IO ()
-main = hakyllWith defaultConfiguration { providerDirectory = "site" } $ do
+main = hakyllWith defaultConfiguration { providerDirectory = "website" } $ do
 
   match "index.md" $ do
     let ctx = defaultContext <> pubsContext <> postsContext
