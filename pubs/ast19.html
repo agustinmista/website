@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- head -->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Agustín Mista">
+		<meta name="robots" content="index, follow">
+		<meta name="Description" lang="en" content="Personal page">
+
+    	<title>Agustín Mista</title>
+	
+		<!-- icons -->
+		<link rel="shortcut icon" href="../assets/img/favicon.ico">
+
+		<!-- Override CSS file - add your own CSS rules -->
+		<link rel="stylesheet" href="../css/style.css">
+	</head>
+
+	<!-- body -->
+	<body>
+
+		<!-- MathJax -->
+ 		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<div class="header">
+			<div class="container">
+				<h1 class="header-heading">Agustín Mista</h1>
+			</div>
+		</div>
+
+		<!-- NavBar -->
+		<div class="nav-bar">
+			<div class="container">
+				<ul class="nav">
+					<li><a href="../">Home</a></li>
+					<li><a href="../pubs">Publications</a></li>
+        			<li><a href="../blog">Posts</a></li>
+					<li><a href="../teaching">Teaching</a></li>
+					<li><a href="../about">About</a></li>
+					<li><a href="../contact">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<!-- Content -->
+		<div class="content">
+			<div class="container">
+				<div class="main">
+			        <article>
+    <h1> Generating Random Structurally Rich Algebraic Data Type Values </h1>
+    <section class="italic"> Agustín Mista and Alejandro Russo </section>
+    <br /> 
+    14th IEEE/ACM International Workshop on Automation of Software Test. 2019. 
+    <hr>
+    <h2> Abstract </h2>
+    <section class="justified"> <p>Automatic generation of random values described by algebraic data types (ADTs)
+is often a hard task. State-of-the-art random testing tools can automatically
+synthesize random data generators based on ADTs definitions. In that manner,
+generated values comply with the structure described by ADTs, something that
+proves useful when testing software which expects complex inputs. However, it
+sometimes becomes necessary to generate structural richer ADTs values in order
+to test deeper software layers. In this work we propose to leverage static
+information found in the codebase as a manner to improve the generation process.
+Namely, our generators are capable of considering how programs branch on input
+data as well as how ADTs values are built via interfaces. We implement a tool,
+responsible for synthesizing generators for ADTs values while providing
+compiletime guarantees about their distributions. Using compile-time
+predictions, we provide a heuristic that tries to adjust the distribution of
+generators to what developers might want. We report on preliminary experiments
+where our approach shows encouraging results.</p> </section>
+    <section>
+        <span>
+             [<a href="../assets/pdf/ast19.pdf">PDF</a>] 
+             [<a href="https://dl.acm.org/citation.cfm?id=3338669">cite</a>] 
+        </span>
+    </section>
+</article>
+
+				</div>
+			</div>
+		</div>
+		
+		<!-- Footer -->
+		<div class="footer">
+			<div class="container">
+  			    Powered by <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+			</div>
+		</div>
+
+	</body>
+</html>
