@@ -22,16 +22,11 @@ jobs:
         cache-name: cache-cabal
       with:
         path: ~/.cabal
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/*.cabal') }}-${{ hashFiles('**/cabal.project') }}
-        restore-keys: |
-          ${{ runner.os }}-build-${{ env.cache-name }}-
-          ${{ runner.os }}-build-
-          ${{ runner.os }}-
+        key: ${{ env.cache-name }}-${{ hashFiles('**/*.cabal') }}
+        restore-keys: ${{ env.cache-name }}-
     
     - name: Install dependencies
-      run: |
-        cabal update
-        cabal build --only-dependencies
+      run: cabal update && cabal build --only-dependencies
     
     - name: Compile website builder
       run: cabal build all
