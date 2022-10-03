@@ -4,18 +4,21 @@ on:
   push:
     branches: [ master ]
 
+env:
+  URL: mista.me
+
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-    
+
     - uses: actions/checkout@v3
-    
+
     - uses: haskell/actions/setup@v2
       with:
         ghc-version: '9.0.2'
         cabal-version: '3.8'
-    
+
     - name: Cache
       uses: actions/cache@v3
       env:
@@ -24,19 +27,21 @@ jobs:
         path: ~/.cabal
         key: ${{ env.cache-name }}-${{ hashFiles('**/*.cabal') }}
         restore-keys: ${{ env.cache-name }}-
-    
+
     - name: Install dependencies
       run: cabal update && cabal build --only-dependencies
-    
+
     - name: Compile website builder
       run: cabal build all
-    
+
     - name: Build website
+      env:
+        WEBSITE_URL: ${{ env.URL }}
       run: cabal exec website rebuild
-      
+
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: _site
-        cname: mista.me
+        cname: ${{ env.URL }}
