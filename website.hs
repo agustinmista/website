@@ -91,8 +91,8 @@ main = do
       route (setExtension "html")
       compile $ do
         pandocCompiler
-        >>= loadAndApplyTemplate "templates/post.html"    ctx
         >>= saveSnapshot "content"
+        >>= loadAndApplyTemplate "templates/post.html"    ctx
         >>= loadAndApplyTemplate "templates/default.html" ctx
         >>= relativizeUrls
 
