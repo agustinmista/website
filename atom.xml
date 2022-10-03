@@ -15,15 +15,7 @@
     <id>https://mista.me/blog/test.html</id>
     <published>2018-06-03T00:00:00Z</published>
     <updated>2018-06-03T00:00:00Z</updated>
-    <summary type="html"><![CDATA[<article>
-    <h1> Syntax test </h1>
-    <section class="italic-subheader">
-        Posted on 2018-06-03 
-        
-    </section>
-    <hr>
-    <section>
-        <p>This post is mostly intended to test the Markdown syntax supported by Pandoc
+    <summary type="html"><![CDATA[<p>This post is mostly intended to test the Markdown syntax supported by Pandoc
 with the page Css.</p>
 <h2 id="plain-text">Plain Text</h2>
 <p>Aliquam erat volutpat. Nunc eleifend leo vitae magna. In id erat non orci
@@ -287,14 +279,7 @@ document.</p>
 <ol>
 <li id="fn1" role="doc-endnote"><p>This is a footnote.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</section>
-    </section>
-    <hr>
-    <h2> Comments </h2>
-    <script src="https://utteranc.es/client.js" repo="agustinmista/website" issue-term="pathname" label="post" theme="github-light" crossorigin="anonymous" async>
-    </script>
-</article>
-]]></summary>
+</section>]]></summary>
 </entry>
 
 </feed>
