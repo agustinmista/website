@@ -282,10 +282,10 @@ document.</p>
 <p>Specify the name and type of the output file. The format is inferred from the suffix (file extension).</p>
 </dd>
 </dl>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p>This is a footnote.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1" role="doc-endnote"><p>This is a footnote.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
     </section>
