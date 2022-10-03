@@ -12,7 +12,7 @@ import Hakyll
 
 main :: IO ()
 main = do
-  url <- lookupEnvOrFail "WEBSITE_URL"
+  websiteUrl <- lookupEnvOrFail "WEBSITE_URL"
   hakyllWith defaultConfiguration { providerDirectory = "website" } $ do
 
     match "index.md" $ do
@@ -57,7 +57,8 @@ main = do
       route idRoute
       compile $ do
         loadPostSnapshots
-        >>= renderAtom (atomConfig url) ctx
+        >>= traverse (absolutizeUrls websiteUrl)
+        >>= renderAtom (atomConfig websiteUrl) ctx
 
     match "static/*" $ do
       let ctx = defaultContext
@@ -110,12 +111,12 @@ main = do
 -- Atom feed
 
 atomConfig :: String -> FeedConfiguration
-atomConfig url = FeedConfiguration {
+atomConfig websiteUrl = FeedConfiguration {
   feedTitle = "Agustín Mista",
   feedDescription = "This feed provides the latests posts from my personal website",
   feedAuthorName = "Agustín Mista",
   feedAuthorEmail = "agustin@mista.me",
-  feedRoot = url
+  feedRoot = websiteUrl
 }
 
 ----------------------------------------
@@ -167,6 +168,9 @@ niceRoute = customRoute $ \ident ->
 
 topLevel :: Routes
 topLevel = customRoute (takeBaseName . toFilePath)
+
+absolutizeUrls :: String -> Item String -> Compiler (Item String)
+absolutizeUrls domain item = return (fmap (relativizeUrlsWith domain) item)
 
 lookupEnvOrFail :: String -> IO String
 lookupEnvOrFail key = do
