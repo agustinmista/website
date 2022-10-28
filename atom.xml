@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Agustín Mista</title>
-    <link href="https://mista.me/atom.xml" rel="self" />
-    <link href="https://mista.me" />
-    <id>https://mista.me/atom.xml</id>
+    <link href="https://www.mista.me/atom.xml" rel="self" />
+    <link href="https://www.mista.me" />
+    <id>https://www.mista.me/atom.xml</id>
     <author>
         <name>Agustín Mista</name>
         <email>agustin@mista.me</email>
@@ -11,8 +11,8 @@
     <updated>2018-06-03T00:00:00Z</updated>
     <entry>
     <title>Syntax test</title>
-    <link href="https://mista.me/blog/test.html" />
-    <id>https://mista.me/blog/test.html</id>
+    <link href="https://www.mista.me/blog/test.html" />
+    <id>https://www.mista.me/blog/test.html</id>
     <published>2018-06-03T00:00:00Z</published>
     <updated>2018-06-03T00:00:00Z</updated>
     <summary type="html"><![CDATA[<p>This post is mostly intended to test the Markdown syntax supported by Pandoc
@@ -36,7 +36,7 @@ text.</li>
 <h2 id="images">Images</h2>
 <p>Images are inserted using the following syntax. Captions are optional.</p>
 <figure>
-<img src="https://mista.me/assets/img/lambda.png" style="width:20.0%" alt="This is a caption." />
+<img src="https://www.mista.me/assets/img/lambda.png" style="width:20.0%" alt="This is a caption." />
 <figcaption aria-hidden="true">This is a caption.</figcaption>
 </figure>
 <h2 id="math">Math</h2>
