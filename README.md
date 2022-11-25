@@ -1,4 +1,4 @@
-# [mista.me](https://mista.me)
+# [mista.me](http://mista.me)
 
 This repository contains all the code related to my [personal website](https://mista.me). 
 
