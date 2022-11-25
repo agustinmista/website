@@ -5,7 +5,7 @@ date: 2022-11-25
 
 Hello there! 
 
-It's been a very long time since I originally built this website with the sole purpose of having my publications in a single place. While doing so, I also found it was quite easy to add the necessary code to generate blog posts (like the one you're looking at now). So, _after all, why not, why shouldn't I_? To the surprise of anybody, I haven't written anything in almost 4 years this site has been up --- even though I really wanted to! 
+It's been a very long time since I originally built this website with the sole purpose of having my publications in a single place. While doing so, I also found it was quite easy to add the necessary code to generate blog posts (like the one you're looking at now). So, _after all, why not, why shouldn't I_? To the surprise of anybody, I haven't written anything in the 4 years this site has been up --- even though I really wanted to! 
 
 Now, the reasons for not having written anything in 4 years despite really wanting to are probably unsurprising: sometimes I feel I have nothing interesting to say. Other times when I find something interesting that I think I could write about, my immediate reaction is to think "why anybody would want to read about this". Sometimes I feel the effort needed to write something meaningful is really worth it. Sometimes I'm just tired and I rather zoom out and binge-watch a TV show or play a videogame than write a long existential blob. You know, all the bits in the procrastinator's army knife. 
 
