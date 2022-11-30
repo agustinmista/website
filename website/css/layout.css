@@ -11,26 +11,53 @@ body {
     min-height: 100vh;
     flex-direction: column;
     margin: 0;
-	  padding: 0;
-	  color: #333;
+    padding: 0;
+    color: #333;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 1.5em 0 .5em;
     font-weight: 500;
     line-height: 1.1;
 }
 
-h1 { font-size: 1.75em;  } /* 28px */
-h2 { font-size: 1.375em; } /* 22px */
-h3 { font-size: 1.125em; } /* 18px */
-h4 { font-size: 1em;     } /* 16px */
-h5 { font-size: 0.875em; } /* 14px */
-h6 { font-size: 0.5em;   }
+h1 {
+    font-size: 1.75em;
+}
+
+/* 28px */
+h2 {
+    font-size: 1.375em;
+}
+
+/* 22px */
+h3 {
+    font-size: 1.125em;
+}
+
+/* 18px */
+h4 {
+    font-size: 1em;
+}
+
+/* 16px */
+h5 {
+    font-size: 0.875em;
+}
+
+/* 14px */
+h6 {
+    font-size: 0.5em;
+}
 
 p {
-	  margin: 0 0 0.5em;
-	  line-height: 1.5;
+    margin: 0 0 0.5em;
+    line-height: 1.5;
 }
 
 blockquote {
@@ -55,7 +82,8 @@ table {
     margin: 0 0 1em;
 }
 
-th, td {
+th,
+td {
     padding: .5em 1em;
     vertical-align: top;
     text-align: left;
@@ -66,11 +94,25 @@ ul {
     padding-left: 1em;
 }
 
-a:link { color: #222222; }
-a:visited { color: #222222; }
-a:focus { color: #222222; }
-a:hover { color: #204a87; }
-a:active { color: #222222; }
+a:link {
+    color: #222222;
+}
+
+a:visited {
+    color: #222222;
+}
+
+a:focus {
+    color: #222222;
+}
+
+a:hover {
+    color: #204a87;
+}
+
+a:active {
+    color: #222222;
+}
 
 
 /* -----------------------
@@ -120,15 +162,8 @@ Layout styles
     color: white;
 }
 
-.main ul li {
-    list-style: none;
-}
-
 .main li::before {
-    /* content: ' '; */
     font-weight: 900;
-    /* font-family: monospace; */
-    /* content: "⏺ "; */
     color: #22222277;
 }
 
@@ -138,11 +173,11 @@ Layout styles
 }
 
 .noborder {
-  border-top: 0px;
-  border-bottom: 0px;
-  border-left: 0px;
-  border-right: 0px;
-  padding: 0px;
+    border-top: 0px;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    padding: 0px;
 }
 
 /* -----------------------
@@ -168,8 +203,13 @@ Nav
     border-bottom: 1px solid #222222;
 }
 
-.nav a:link { color: white; }
-.nav a:visited { color: white; }
+.nav a:link {
+    color: white;
+}
+
+.nav a:visited {
+    color: white;
+}
 
 .nav a:focus {
     color: black;
@@ -243,7 +283,7 @@ Single styles
     list-style: none;
 }
 
-.list-inline > li {
+.list-inline>li {
     display: inline-block;
     padding-right: 5px;
     padding-left: 5px;
@@ -254,26 +294,26 @@ Wide styles
 ------------------------*/
 
 @media (min-width: 42em) {
-	  .header {
+    .header {
         padding: 0.75em 2em;
     }
-	  .nav-bar {
+
+    .nav-bar {
         padding: 0.5em 2em;
     }
-	  .content {
+
+    .content {
         padding: 2em 2em;
     }
 
-	  .nav li
-	  {
-		    display: inline;
-		    margin: 0 1em 0 0;
-	  }
+    .nav li {
+        display: inline;
+        margin: 0 1em 0 0;
+    }
 
-	  .nav a
-	  {
-		    display: inline;
-		    padding: 0;
-		    border-bottom: 0;
-	  }
+    .nav a {
+        display: inline;
+        padding: 0;
+        border-bottom: 0;
+    }
 }
