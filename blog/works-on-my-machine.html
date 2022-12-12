@@ -64,7 +64,7 @@
 </ol>
 <p>Let’s take a deeper look at each part now.</p>
 <h2 id="build-environment">Build environment</h2>
-<p>The LaTeX pipeline I use is relatively simple. First, we preprocesses the root <code>.lhs.tex</code> files of my project using <code>lhs2tex</code>. This produces some gigantic <code>.tex</code> files that we then compile with the usual <code>pdflatex</code>+<code>bibtex</code>+<code>pdflatex</code>+<code>pdflatex</code> nonsense. These two steps are defined using a simple Makefile. I wrote <a href="https://github.com/agustinmista/latex-lhs2tex-docker/blob/main/Dockerfile">this Dockerfile</a> to automate the process of installing the dependencies needed to run the pipeline.</p>
+<p>The LaTeX pipeline I use is relatively simple: a simple Makefile preprocesses the root <code>.lhs.tex</code> files of my project, producing some gigantic <code>.tex</code> files that get compiled with the usual <code>pdflatex</code>+<code>bibtex</code>+<code>pdflatex</code>+<code>pdflatex</code> nonsense. I wrote <a href="https://github.com/agustinmista/latex-lhs2tex-docker/blob/main/Dockerfile">this Dockerfile</a> to automate the process of installing all these dependencies.</p>
 <p>For simplicity, I use a GitHub action to build and <a href="https://hub.docker.com/r/agustinmista/latex-lhs2tex">deploy this image to DockerHub</a> remotely on every new push. This is quite straightforward to set up using some existing actions:</p>
 <p><strong>.github/workflows/docker.yml</strong>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Docker Image CI</span></span>
