@@ -15,7 +15,7 @@ Let's take a deeper look at each part now.
 
 ## Build environment
 
-The LaTeX pipeline I use is relatively simple: a simple Makefile preprocesses the root `.lhs.tex` files of my project, producing some gigantic `.tex` files that get compiled with the usual `pdflatex`+`bibtex`+`pdflatex`+`pdflatex` nonsense. I wrote [this Dockerfile](https://github.com/agustinmista/latex-lhs2tex-docker/blob/main/Dockerfile) to automate the process of installing all these dependencies.
+The LaTeX pipeline I use is relatively simple. First, we preprocesses the root `.lhs.tex` files of my project using `lhs2tex`. This produces some gigantic `.tex` files that we then compile with the usual `pdflatex`+`bibtex`+`pdflatex`+`pdflatex` nonsense. These two steps are defined using a simple Makefile. I wrote [this Dockerfile](https://github.com/agustinmista/latex-lhs2tex-docker/blob/main/Dockerfile) to automate the process of installing the dependencies needed to run the pipeline.
 
 For simplicity, I use a GitHub action to build and [deploy this image to DockerHub](https://hub.docker.com/r/agustinmista/latex-lhs2tex) remotely on every new push. This is quite straightforward to set up using some existing actions:
 
