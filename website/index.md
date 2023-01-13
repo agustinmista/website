@@ -4,7 +4,7 @@ title: Home
 
 ### Welcome to my webpage!
 
-# Posts
+# Blog
 
 $partial("templates/post-list.html")$
 
