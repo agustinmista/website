@@ -5,6 +5,7 @@ year:    2021
 venue:   43rd International Conference on Software Engineering (Student Research Competition)
 type:    student research competition
 pdf:     /assets/pdf/icse21-src.pdf
+cite:    https://ieeexplore.ieee.org/abstract/document/9402642
 date:    2021-05-27
 ---
 

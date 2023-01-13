@@ -6,6 +6,7 @@ venue:   National University of Rosario
 type:    thesis
 pdf:     /assets/pdf/lic-thesis.pdf
 comment: Licentiate thesis (in Spanish)
+cite:    https://dcc.fceia.unr.edu.ar/es/lcc/tesinas-grado/tesinas/modelando-generadores-de-datos-aleatorios-mediante-procesos-estoc%C3%A1sticos%E2%80%8B
 date:    2018-06-22
 ---
 
