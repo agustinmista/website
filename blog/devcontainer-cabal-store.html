@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- head -->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Agustín Mista">
+		<meta name="robots" content="index, follow">
+		<meta name="Description" lang="en" content="Personal page">
+
+    	<title>Agustín Mista</title>
+
+		<!-- icons -->
+		<link rel="shortcut icon" href="../assets/img/favicon.ico">
+
+		<!-- Override CSS file - add your own CSS rules -->
+		<link rel="stylesheet" href="../css/style.css">
+	</head>
+
+	<!-- body -->
+	<body>
+
+		<!-- MathJax -->
+ 		<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<div class="header">
+			<div class="container">
+				<h1 class="header-heading">Agustín Mista</h1>
+			</div>
+		</div>
+
+		<!-- NavBar -->
+		<div class="nav-bar">
+			<div class="container">
+				<ul class="nav">
+					<li><a href="../">Home</a></li>
+					<li><a href="../pubs">Publications</a></li>
+        			<li><a href="../blog">Blog</a></li>
+					<li><a href="../teaching">Teaching</a></li>
+					<li><a href="../about">About</a></li>
+					<li><a href="../contact">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Content -->
+		<div class="content">
+			<div class="container">
+				<div class="main">
+			        <article>
+    <h1> Persistent cabal store in Haskell devcontainers </h1>
+    <section class="italic-subheader">
+        Posted on 2023-01-14 
+        
+    </section>
+    <hr>
+    <section>
+        <p>This is going to be a short one. I recently added a <a href="https://code.visualstudio.com/docs/devcontainers/containers">development container</a> definition to the repository that hosts this very website. The definition I’m using is taken from <a href="https://github.com/microsoft/vscode-dev-containers/tree/main/containers/haskell">Microsoft’s devcontainer repository</a> via the option integrated in Visual Studio Code<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>For the most part, this development container works flawelessly. Except for this: the user’s cabal folder (located at <code>~/.cabal</code> by default) is not persisted across container runs. This means I need to rebuild from scratch most of the dependencies that cabal saves in its user-wide package store (<code>~/.cabal/store</code>) every time I reopen the project (notably annoying with Hakyll’s dependency of big-chungus <code>pandoc</code>).</p>
+<p>There are a couple of ways to solve this:</p>
+<ul>
+<li><p>By configuring cabal to use a package store located inside the repository’s folder (which is bind-mounted to the host’s file system).</p>
+<p><em>Problem</em>: this would duplicate the work for any dependency shared across Haskell projects.</p></li>
+<li><p>Creating a <code>~/.cabal</code> folder in my host computer and share it among devcontainers.</p>
+<p><em>Problem</em>: this folder would be continuously modified by <code>root</code>, a permission hell waiting to happen.</p></li>
+<li><p>Mounting the package store to a <a href="https://code.visualstudio.com/remote/advancedcontainers/improve-performance#_use-a-targeted-named-volume">Docker named volume</a>.</p>
+<p>This is what I ended up doing, as it takes the least work and doesn’t clutter my host’s <code>$HOME</code>.</p>
+<p>The only changes needed are adding the following properties to <code>.devcontainer/devcontainer.json</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">&quot;mounts&quot;:</span> <span class="ot">[</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;source=cabal_store,target=/home/vscode/.cabal/store,type=volume&quot;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span><span class="er">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="er">&quot;postCreateCommand&quot;:</span> <span class="er">&quot;sudo</span> <span class="er">chown</span> <span class="er">vscode</span> <span class="er">/home/vscode/.cabal/store&quot;</span></span></code></pre></div>
+<p>Where <code>cabal_store</code> is the name of the Docker volume to be created and <code>vscode</code> is the Linux user of this devcontainer. The <code>postCreateCommand</code> is there to make sure our container can access and modify the package store (only needed in case your devcontainer logs in to a user other than <code>root</code>). Repeat this for every Haskell devcontainer you want to share the cabal store with.</p></li>
+</ul>
+<p>That’s it! Signing off.</p>
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Sadly, I found today this repo is getting deprecated in favor of <a href="https://containers.dev/">containers.dev</a>, and the latter doesn’t yet host any devcontainer definition for Haskell.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+    </section>
+    <hr>
+    <h2> Comments </h2>
+    <script src="https://utteranc.es/client.js" repo="agustinmista/website" issue-term="pathname" label="post" theme="github-light" crossorigin="anonymous" async>
+    </script>
+</article>
+
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<div class="footer">
+			<div class="container">
+  			    Powered by <a href="https://jaspervdj.be/hakyll">Hakyll</a>
+			</div>
+		</div>
+
+	</body>
+</html>
