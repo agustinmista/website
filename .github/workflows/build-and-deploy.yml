@@ -9,11 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - uses: actions/checkout@v3
+    - name: Clone repository
+      uses: actions/checkout@v3
 
-    - uses: xom9ikk/dotenv@v2
+    - name: Read environment variables
+      uses: xom9ikk/dotenv@v2
 
-    - uses: haskell/actions/setup@v2
+    - name: Setup Haskell
+      uses: haskell/actions/setup@v2
       with:
         ghc-version: '9.0.2'
         cabal-version: '3.8'
