@@ -18,5 +18,12 @@
     }
   },
   // Comment out to connect as root instead. To add a non-root user, see: https://aka.ms/vscode-remote/containers/non-root.
-  "remoteUser": "vscode"
+  "remoteUser": "vscode",
+  // Forward port used by Hakyll watch
+  "forwardPorts": [8000],
+  // Create a container volume for the global cabal store
+  "mounts": [
+    "source=cabal_store,target=/home/vscode/.cabal/store,type=volume"
+  ],
+  "postCreateCommand": "sudo chown vscode /home/vscode/.cabal/store"
 }
