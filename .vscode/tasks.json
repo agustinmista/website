@@ -12,7 +12,7 @@
     {
       "label": "build",
       "type": "shell",
-      "command": "WEBSITE_URL=${env:SCHEME}${env:DOMAIN} cabal run website build",
+      "command": "source .env && WEBSITE_URL=${SCHEME}${DOMAIN} cabal run website build",
       "problemMatcher": [],
       "group": {
         "kind": "build",
@@ -22,13 +22,13 @@
     {
       "label": "rebuild",
       "type": "shell",
-      "command": "WEBSITE_URL=${env:SCHEME}${env:DOMAIN} cabal run website rebuild",
+      "command": "source .env && WEBSITE_URL=${SCHEME}${DOMAIN} cabal run website rebuild",
       "problemMatcher": []
     },
     {
       "label": "watch",
       "type": "shell",
-      "command": "WEBSITE_URL=${env:SCHEME}${env:DOMAIN} cabal run website watch",
+      "command": "source .env && WEBSITE_URL=${SCHEME}${DOMAIN} cabal run website watch",
       "problemMatcher": []
     }
   ]
