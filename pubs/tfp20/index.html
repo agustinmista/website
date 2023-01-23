@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- head -->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Agustín Mista">
+	<meta name="robots" content="index, follow">
+	<meta name="Description" lang="en" content="Personal page">
+
+	<link rel="shortcut icon" href="../../assets/img/favicon.ico">
+	<link rel="stylesheet" href="../../css/style.css">
+
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+	<title>Agustín Mista</title>
+</head>
+
+<!-- body -->
+
+<body>
+
+	<!-- Header -->
+	<div class="header">
+		<div class="container">
+			<h1 class="header-heading"><a href="../../" style="color: inherit;">Agustín Mista</a></h1>
+		</div>
+	</div>
+
+	<!-- NavBar -->
+	<div class="nav-bar">
+		<div class="container">
+			<ul class="nav">
+				<li><a href="../../">Home</a></li>
+				<li><a href="../../pubs">Publications</a></li>
+				<li><a href="../../blog">Blog</a></li>
+				<li><a href="../../teaching">Teaching</a></li>
+				<li><a href="../../about">About</a></li>
+				<li><a href="../../contact">Contact</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- Content -->
+	<div class="content">
+		<div class="container">
+			<div class="main">
+				<article>
+    <h1>BinderAnn: Automated Reification of Source Annotations for Monadic EDSLs</h1>
+    <section class="italic">Agustín Mista and Alejandro Russo</section>
+    <br />
+    21st International Symposium on Trends in Functional Programming. 2020. 
+    <hr>
+    <h2>Abstract</h2>
+    <section class="justified"><p>Embedded Domain-Specific Languages (EDSLs) are an alternative to quickly implement specialized languages without the need to write compilers or interpreters from scratch. In this territory, Haskell is a prime choice as the host language. EDSLs in Haskell, however, are often incapable of reifying useful static information from the source code, namely variable binding names and source locations. Not having access to variable names directly affects EDSLs designed to generate low-level code, where the variables names in the generated code do not match those found in the source code—thus broadening the semantic gap among source and target code. Similarly, many existing EDSLs produce poor error messages due to the lack of knowledge of source locations where errors are generated.</p>
+<p>In this work, we propose a simple technique for enhancing monadic EDSLs expressed using do notation. This technique employs source-to-source plugins, a relatively new feature of GHC, to annotate every do statement of our EDSLs with relevant information extracted from the source code at compile time. We show how these annotations can be incorporated into EDSL designs either directly inside values or as monadic effects. We provide BinderAnn, a GHC source plugin implementing our ideas, and evaluate it by enhancing existing real-world EDSLs with relatively minor modification efforts to contemplate the source-level static information related to variables names and source locations.</p></section>
+    <section>
+        <span>
+             [<a href="../../assets/pdf/tfp20.pdf">PDF</a>] 
+             [<a href="https://link.springer.com/chapter/10.1007/978-3-030-57761-2_2">cite</a>] 
+        </span>
+    </section>
+</article>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<div class="footer">
+		<div class="container">
+			Powered by <a href="https://jaspervdj.be/hakyll">Hakyll</a>
+		</div>
+	</div>
+
+</body>
+
+</html>

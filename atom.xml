@@ -11,8 +11,8 @@
     <updated>2022-11-30T00:00:00Z</updated>
     <entry>
     <title>Dusting the bookshelf</title>
-    <link href="https://www.mista.me/blog/bibtool.html" />
-    <id>https://www.mista.me/blog/bibtool.html</id>
+    <link href="https://www.mista.me/blog/bibtool/index.html" />
+    <id>https://www.mista.me/blog/bibtool/index.html</id>
     <published>2022-11-30T00:00:00Z</published>
     <updated>2022-11-30T00:00:00Z</updated>
     <summary type="html"><![CDATA[<p>I’m currently in the process of writing my Ph.D. thesis. This means I need to gather all my published papers and fight against LaTeX and Lhs2TeX until everything fits together and looks somewhat decent. One of the many challenges of this process was to deal with the multiple bibliography (<code>.bib</code>) files I collected over the years. Hopefully I’m not the only one in this situation:</p>
@@ -99,8 +99,8 @@ Looking for peach: Found in bib/baz.bib!
 </entry>
 <entry>
     <title>Persistent cabal store in Haskell devcontainers</title>
-    <link href="https://www.mista.me/blog/devcontainer-cabal-store.html" />
-    <id>https://www.mista.me/blog/devcontainer-cabal-store.html</id>
+    <link href="https://www.mista.me/blog/devcontainer-cabal-store/index.html" />
+    <id>https://www.mista.me/blog/devcontainer-cabal-store/index.html</id>
     <published>2023-01-14T00:00:00Z</published>
     <updated>2023-01-14T00:00:00Z</updated>
     <summary type="html"><![CDATA[<p>This is going to be a short one. I recently added a <a href="https://code.visualstudio.com/docs/devcontainers/containers">development container</a> definition to the repository that hosts this very website. The definition I’m using is taken from <a href="https://github.com/microsoft/vscode-dev-containers/tree/main/containers/haskell">Microsoft’s devcontainer repository</a> via the option integrated in Visual Studio Code<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
@@ -130,8 +130,8 @@ Looking for peach: Found in bib/baz.bib!
 </entry>
 <entry>
     <title>Creating CI jobs dynamically in GitHub</title>
-    <link href="https://www.mista.me/blog/dymamic-jobs-github-actions.html" />
-    <id>https://www.mista.me/blog/dymamic-jobs-github-actions.html</id>
+    <link href="https://www.mista.me/blog/dymamic-jobs-github-actions/index.html" />
+    <id>https://www.mista.me/blog/dymamic-jobs-github-actions/index.html</id>
     <published>2023-01-15T00:00:00Z</published>
     <updated>2023-01-15T00:00:00Z</updated>
     <summary type="html"><![CDATA[<p>This a neat trick I learnt the other day while I was writing some automation for my <a href="https://github.com/agustinmista/qmk_playground">out-of-tree QMK builder</a> project. There, I have firmware files for different keyboards in a folder called <code>keyboards</code>:</p>
@@ -226,8 +226,8 @@ keyboards
 </entry>
 <entry>
     <title>Hello, world!</title>
-    <link href="https://www.mista.me/blog/hello.html" />
-    <id>https://www.mista.me/blog/hello.html</id>
+    <link href="https://www.mista.me/blog/hello/index.html" />
+    <id>https://www.mista.me/blog/hello/index.html</id>
     <published>2022-11-25T00:00:00Z</published>
     <updated>2022-11-25T00:00:00Z</updated>
     <summary type="html"><![CDATA[<p>Hello there!</p>
@@ -239,8 +239,8 @@ keyboards
 </entry>
 <entry>
     <title>Syntax test</title>
-    <link href="https://www.mista.me/blog/test.html" />
-    <id>https://www.mista.me/blog/test.html</id>
+    <link href="https://www.mista.me/blog/test/index.html" />
+    <id>https://www.mista.me/blog/test/index.html</id>
     <published>2018-06-03T00:00:00Z</published>
     <updated>2018-06-03T00:00:00Z</updated>
     <summary type="html"><![CDATA[<p>This post is mostly intended to test the Markdown syntax supported by Pandoc
@@ -511,8 +511,8 @@ document.</p>
 </entry>
 <entry>
     <title>Works on my machine™</title>
-    <link href="https://www.mista.me/blog/works-on-my-machine.html" />
-    <id>https://www.mista.me/blog/works-on-my-machine.html</id>
+    <link href="https://www.mista.me/blog/works-on-my-machine/index.html" />
+    <id>https://www.mista.me/blog/works-on-my-machine/index.html</id>
     <published>2022-12-12T00:00:00Z</published>
     <updated>2022-12-12T00:00:00Z</updated>
     <summary type="html"><![CDATA[<p>I’ve been having issues compiling LaTeX projects that use Lhs2TeX+pdfTeX+BibTeX in a reproductible manner between my workstation and GitHub’s CI, and while there are a bunch of solutions for building LaTeX in CI and VSCode without much hassle, I couldn’t quite find the way to make them work with Lhs2Tex in the pipeline. To solve this, I decided to homogenize the build environment using a Docker image, the same one everywhere. This works pretty well but turned out to be a bit nuanced, so these are the instructions for future me.</p>

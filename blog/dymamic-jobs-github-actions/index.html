@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- head -->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Agustín Mista">
+	<meta name="robots" content="index, follow">
+	<meta name="Description" lang="en" content="Personal page">
+
+	<link rel="shortcut icon" href="../../assets/img/favicon.ico">
+	<link rel="stylesheet" href="../../css/style.css">
+
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+	<title>Agustín Mista</title>
+</head>
+
+<!-- body -->
+
+<body>
+
+	<!-- Header -->
+	<div class="header">
+		<div class="container">
+			<h1 class="header-heading"><a href="../../" style="color: inherit;">Agustín Mista</a></h1>
+		</div>
+	</div>
+
+	<!-- NavBar -->
+	<div class="nav-bar">
+		<div class="container">
+			<ul class="nav">
+				<li><a href="../../">Home</a></li>
+				<li><a href="../../pubs">Publications</a></li>
+				<li><a href="../../blog">Blog</a></li>
+				<li><a href="../../teaching">Teaching</a></li>
+				<li><a href="../../about">About</a></li>
+				<li><a href="../../contact">Contact</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- Content -->
+	<div class="content">
+		<div class="container">
+			<div class="main">
+				<article>
+    <h1>Creating CI jobs dynamically in GitHub</h1>
+    <section class="italic-subheader">
+        Posted on 2023-01-15 
+        
+    </section>
+    <hr>
+    <section>
+        <p>This a neat trick I learnt the other day while I was writing some automation for my <a href="https://github.com/agustinmista/qmk_playground">out-of-tree QMK builder</a> project. There, I have firmware files for different keyboards in a folder called <code>keyboards</code>:</p>
+<pre><code>Makefile
+keyboards
+  |-- preonic
+  |     |-- keymap.c
+  |     |-- config.h
+  |     |-- rules.mk
+  |     \-- env
+  \-- thekey_v2
+        |-- keymap.c
+        |-- config.h
+        |-- rules.mk
+        \-- env</code></pre>
+<p>The content of these folders is not important today (but maybe soon). What’s relevant here is that I have a Makefile that builds a given firmware by passing the <code>KBD</code> variable with the folder where it’s defined:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make KBD=preonic</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make KBD=thekey_v2</span></code></pre></div>
+<p>Now, if I want to build and publish these firmares in CI, I could simply do one after another, something like:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">push</span><span class="kw">]</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">build</span><span class="kw">:</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Checkout repository</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v3</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Build preonic firmware</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">run</span><span class="kw">:</span><span class="at"> make KBD=preonic</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Build thekey_v2 firmware</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">run</span><span class="kw">:</span><span class="at"> make KBD=thekey_v2</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Create artifact</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/upload-artifact@v2</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">name</span><span class="kw">:</span><span class="at"> firmwares</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="fu">          path</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>            build/*.bin</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>            build/*.hex</span></code></pre></div>
+<p>The problem with this approach is that I need to remember to go and change the CI workflow everytime keyboard N+1 suddenly appears. What we want instead is to run something like:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> kbd <span class="kw">in</span> <span class="va">$(</span><span class="fu">ls</span> keyboards<span class="va">)</span><span class="kw">;</span> <span class="fu">make</span> KBD=<span class="va">$kbd</span><span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
+<p>One interesting way to do this is to split the workflow into:</p>
+<ol type="1">
+<li>A <code>find-targets</code> job that “discovers” which jobs to run and saves them in an output named <code>targets</code>.</li>
+<li>A <code>build</code> job that reads these <code>targets</code> and uses the <a href="https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs"><code>matrix</code> strategy</a> to run them in parallel.</li>
+</ol>
+<p>This looks like:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">push</span><span class="kw">]</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">find-targets</span><span class="kw">:</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">outputs</span><span class="kw">:</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">targets</span><span class="kw">:</span><span class="at"> ${{ steps.set-targets.outputs.targets }}</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v2</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">id</span><span class="kw">:</span><span class="at"> set-targets</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">run</span><span class="kw">:</span><span class="at"> echo &quot;targets=$(ls keyboards | jq -R '[.]' | jq -s -c 'add')&quot; &gt;&gt; $GITHUB_OUTPUT</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">build</span><span class="kw">:</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">needs</span><span class="kw">:</span><span class="at"> find-targets</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">strategy</span><span class="kw">:</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">matrix</span><span class="kw">:</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">KBD</span><span class="kw">:</span><span class="at"> ${{ fromJson(needs.find-targets.outputs.targets) }}</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Checkout repository</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v3</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Build firmware</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">run</span><span class="kw">:</span><span class="at"> make KBD=${{ matrix.KBD }}</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Create artifact</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/upload-artifact@v2</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">name</span><span class="kw">:</span><span class="at"> ${{ matrix.KBD }}</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="fu">          path</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>            build/*.bin</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>            build/*.hex</span></code></pre></div>
+<p>There are a couple of things worth mentioning here:</p>
+<ol type="1">
+<li><p>The actual build step is more complicated as it uses the official <code>qmkfm/qmk_cli</code> Docker image to build the firmwares. The code I show here is deliberately simpler to show the idea.</p></li>
+<li><p>We need the <code>build</code> job to depend on <code>find-targets</code> so they run in the correct order. This is easy to enforce by adding <code>needs: find-targets</code> as shown above.</p></li>
+<li><p>In <code>find-targets</code>, we need to create a JSON array of targets, e.g. <code>["preonic","thekey_v2"]</code>. For this, the <code>set-targets</code> step first lists the files under <code>keyboards</code> and progressively add them to an empty array using good ’ol <code>jq</code>. This array is then saved to the <code>GITHUB_OUTPUT</code> environment variable associated with this step. Finally, this job retrieves the targets from the output of the <code>set-targets</code> and assigns it to the job’s output <code>targets</code>. For reference, this is the new and cool way to do this now that <a href="https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/"><code>save-output</code> is getting deprecated</a>.</p></li>
+<li><p>In <code>build</code>, we define the build matrix by retrieving the <code>targets</code> variable from output of <code>find-targets</code>. GitHub will then run the <code>build</code> action once per target, instantiating the <code>matrix.KBD</code> variable with the current target name, which we use later to call <code>make</code> accordingly.</p></li>
+</ol>
+<p>With this in place, GitHub will create <code>build</code> jobs dinamycally on push, and there’s no need to hardcode build targets anywhere :)</p>
+    </section>
+    <hr>
+    <h2>Comments</h2>
+    <script src="https://utteranc.es/client.js" repo="agustinmista/website" issue-term="pathname" label="post" theme="github-light" crossorigin="anonymous" async></script>
+</article>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<div class="footer">
+		<div class="container">
+			Powered by <a href="https://jaspervdj.be/hakyll">Hakyll</a>
+		</div>
+	</div>
+
+</body>
+
+</html>
