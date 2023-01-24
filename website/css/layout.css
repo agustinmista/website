@@ -3,6 +3,7 @@ Base styles
 ------------------------*/
 
 html {
+	font-family: Arial, sans-serif;
     overflow-y: scroll;
 }
 
@@ -61,7 +62,7 @@ p {
 }
 
 blockquote {
-    padding: 1em 2em;
+    padding: 0.5em 1em;
     margin: 0 0 1em;
     border-left: 5px solid #22222277;
 }
@@ -243,8 +244,7 @@ Single styles
     line-height: 1.2;
     text-align: center;
     white-space: nowrap;
-    vertical-align:
-    middle;
+    vertical-align: middle;
     cursor: pointer;
     border: 1px solid transparent;
     border-radius: .2em;
