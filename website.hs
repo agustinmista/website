@@ -18,25 +18,24 @@ main = do
     ----------------------------------------
     -- Index page
 
-    match "index.md" $ do
-      let ctx = defaultContext <> pubsContext <> postsContext
-      route (setExtension "html")
+    match "index.html" $ do
+      let ctx = defaultContext <> recentPubsContext 5 <> recentPostsContext 5
+      route idRoute
       compile $ do
         getResourceBody
         >>= applyAsTemplate ctx
-        >>= renderPandoc
         >>= loadAndApplyTemplate "templates/default.html" ctx
         >>= cleanIndexUrls
         >>= relativizeUrls
 
     ----------------------------------------
-    -- Other standalone static pages (about, contact, etc.)
+    -- Other standalone static pages without templates (about, contact, etc.)
 
-    match "*.md" $ do
+    match "*.html" $ do
       let ctx = defaultContext
       route niceRoute
       compile $ do
-        pandocCompiler
+        getResourceBody
         >>= loadAndApplyTemplate "templates/default.html" ctx
         >>= cleanIndexUrls
         >>= relativizeUrls
@@ -45,7 +44,7 @@ main = do
     -- Publications
 
     create ["pubs/index.html"] $ do
-      let ctx = defaultContext <> pubsContext
+      let ctx = defaultContext <> allPubsContext
       route idRoute
       compile $ do
         newItem
@@ -68,7 +67,7 @@ main = do
     -- Blog
 
     create ["blog/index.html"] $ do
-      let ctx = defaultContext <> postsContext
+      let ctx = defaultContext <> allPostsContext
       route idRoute
       compile $ do
         newItem
@@ -92,7 +91,7 @@ main = do
     -- Teaching
 
     create ["teaching/index.html"] $ do
-      let ctx = defaultContext <> coursesContext
+      let ctx = defaultContext <> allCoursesContext
       route idRoute
       compile $ do
         newItem
@@ -180,17 +179,38 @@ dateContext = dateField "date" "%B %e, %Y"
 
 -- List contexts
 
-postsContext :: Context String
-postsContext = listField "posts" defaultContext (loadPosts >>= recentFirst)
+mkListContext :: String -> Compiler [Item String] -> Maybe Int -> Context a
+mkListContext name loader mbn = do
+  listField name defaultContext $ do
+    items <- recentFirst =<< loader
+    return (maybe items (`take` items) mbn)
+
+postsContext :: Maybe Int -> Context String
+postsContext = mkListContext "posts" loadPosts
 
 postSnapshotsContext :: Context String
-postSnapshotsContext = listField "post_snapshots" defaultContext (loadPostSnapshots >>= recentFirst)
+postSnapshotsContext = mkListContext "post_snapshots" loadPostSnapshots Nothing
 
-pubsContext :: Context String
-pubsContext = listField "pubs" defaultContext (loadPubs >>= recentFirst)
+pubsContext :: Maybe Int -> Context String
+pubsContext = mkListContext "pubs" loadPubs
 
-coursesContext :: Context String
-coursesContext = listField "courses" defaultContext (loadCourses >>= recentFirst)
+coursesContext :: Maybe Int -> Context String
+coursesContext = mkListContext "courses" loadCourses
+
+allPostsContext :: Context String
+allPostsContext = postsContext Nothing
+
+allPubsContext :: Context String
+allPubsContext = pubsContext Nothing
+
+allCoursesContext :: Context String
+allCoursesContext = coursesContext Nothing
+
+recentPostsContext :: Int -> Context String
+recentPostsContext n = postsContext (Just n)
+
+recentPubsContext :: Int -> Context String
+recentPubsContext n = pubsContext (Just n)
 
 ----------------------------------------
 -- Helpers
@@ -201,7 +221,6 @@ index = "index.html"
 -- Create a new empty item
 newItem :: Monoid m => Compiler (Item m)
 newItem = makeItem mempty
-
 
 -- Make a relative URL absolute given a base domain
 -- (only used when creating atom feed)

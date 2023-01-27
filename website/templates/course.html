@@ -1,16 +1,16 @@
 <article>
-    <h1>$title$</h1>
-    <section class="italic-subheader">
-        $if(refresh)$
-        <h3>Auto refresh every $refresh$ seconds enabled</h3>
-        <meta http-equiv="refresh" content="$refresh$" />
-        $endif$
-    </section>
-    $period$ <br>
-    Course responsible: $responsible$ <br>
-    <a href="$coursepage$">Course main webpage</a>
-    <hr>
-    <section>
-        $body$
-    </section>
+  <header>
+    <h2>$title$</h2>
+  </header>
+
+  <section>
+    Period: $period$
+    <br />Role: $role$
+    <br />Course responsible: $responsible$
+    $if(coursepage)$ <br /><br /> <a role="button" class="secondary" href="$coursepage$">Course webpage</a> $endif$
+  </section>
+
+  <section>
+    $body$
+  </section>
 </article>

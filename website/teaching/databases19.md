@@ -7,8 +7,7 @@ coursepage:  https://chalmers.instructure.com/courses/3809/assignments/syllabus
 date:        2019-01-15
 ---
 
-Wed 6/3 Exercise session (theory):
-----------------------------------
+#### Wed 6/3 Exercise session (theory):
 
 * [Questions](../assets/pdf/db-ex-theory.pdf)
 * [Solutions](../assets/pdf/db-sol-theory.pdf)

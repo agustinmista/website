@@ -1,14 +1,11 @@
 $for(pubs)$
-<blockquote>
-  <span>
-      <a href="$url$">$title$</a>
-  </span>
+<p>
+  <a href="$url$">$title$</a>
+  <br />$authors$
+  <br />$venue$ ($year$)
+  $if(comment)$ <br />$comment$ $endif$
   <br />
-  $authors$
-  <br />
-  $venue$ ($year$)$if(comment)$. $comment$. $endif$
-  <br />
-  $if(pdf)$ [<a href="$pdf$">PDF</a>] $endif$
-  $if(cite)$ [<a href="$cite$">cite</a>] $endif$
-</blockquote>
+  $if(pdf)$  <a role="button" class="secondary" href="$pdf$">PDF</a> $endif$
+  $if(cite)$ <a role="button" class="secondary" href="$cite$">CITE</a> $endif$
+</p>
 $endfor$

@@ -1,7 +1,9 @@
-<h1>Blog</h1>
-
-<p>Here you can find all my previous posts:</p>
-
-$partial("templates/post-list.html")$
-
-<p>There's also an atom feed you can subscribe to <a href="/atom.xml">here</a>.</p>
+<article>
+  <header>
+    <h2>Blog</h2>
+  </header>
+  $partial("templates/post-list.html")$
+  <footer>
+    There's also an atom feed you can subscribe to <a href="/atom.xml">here</a>.
+  </footer>
+</article>
