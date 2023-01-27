@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<!-- head -->
+<html lang="en" data-theme="dark">
 
 <head>
 	<meta charset="utf-8">
@@ -19,165 +17,132 @@
 	<title>Agustín Mista</title>
 </head>
 
-<!-- body -->
-
 <body>
 
-	<!-- Header -->
-	<div class="header">
-		<div class="container">
-			<h1 class="header-heading"><a href="../" style="color: inherit;">Agustín Mista</a></h1>
+	<header class="container">
+		<hgroup>
+			<h2><a href="../">Agustín Mista</a></h2>
+			<h3>
+				<i>
+					// Ph.D. Student at Chalmers<br />
+					// Lead Software Engineer at DPella
+				</i>
+			</h3>
+		</hgroup>
+		<div class="grid">
+			<button class="secondary" onclick="window.location.href='/pubs'">Publications</button>
+			<button class="secondary" onclick="window.location.href='/blog'">Blog</button>
+			<button class="secondary" onclick="window.location.href='/teaching'">Teaching</button>
+			<button class="secondary" onclick="window.location.href='/about'">About</button>
+			<button class="secondary" onclick="window.location.href='/contact'">Contact</button>
 		</div>
-	</div>
+	</header>
 
-	<!-- NavBar -->
-	<div class="nav-bar">
-		<div class="container">
-			<ul class="nav">
-				<li><a href="../">Home</a></li>
-				<li><a href="../pubs">Publications</a></li>
-				<li><a href="../blog">Blog</a></li>
-				<li><a href="../teaching">Teaching</a></li>
-				<li><a href="../about">About</a></li>
-				<li><a href="../contact">Contact</a></li>
-			</ul>
-		</div>
-	</div>
+	<main class="container">
+		<article>
+  <header>
+    <h2>Publications</h2>
+  </header>
+  
+<p>
+  <a href="../pubs/icse21-src">MUTAGEN: Faster Mutation-Based Random Testing (extended abstract)</a>
+  <br />Agustín Mista
+  <br />43rd International Conference on Software Engineering (Student Research Competition) (2021)
+  
+  <br />
+    <a role="button" class="secondary" href="../assets/pdf/icse21-src.pdf">PDF</a> 
+   <a role="button" class="secondary" href="https://ieeexplore.ieee.org/abstract/document/9402642">CITE</a> 
+</p>
 
-	<!-- Content -->
-	<div class="content">
-		<div class="container">
-			<div class="main">
-				<h1>Publications</h1>
+<p>
+  <a href="../pubs/plas20">Short Paper: Weak Runtime-Irrelevant Typing for Security</a>
+  <br />Matthías Páll Gissurarson and Agustín Mista
+  <br />ACM SIGSAC 15th Workshop on Programming Languages and Analysis for Security (2020)
+  
+  <br />
+    <a role="button" class="secondary" href="../assets/pdf/plas20.pdf">PDF</a> 
+   <a role="button" class="secondary" href="https://dl.acm.org/doi/10.1145/3411506.3417595">CITE</a> 
+</p>
 
+<p>
+  <a href="../pubs/licentiate-chalmers">Automated Derivation of Random Generators for Algebraic Data Types</a>
+  <br />Agustín Mista
+  <br />Chalmers University of Technology (2020)
+   <br />Licentiate thesis 
+  <br />
+    <a role="button" class="secondary" href="../assets/pdf/licentiate-chalmers.pdf">PDF</a> 
+   <a role="button" class="secondary" href="https://search.ebscohost.com/login.aspx?direct=true&db=ir01624a&AN=crp.038c338a.f005.419f.9698.b07bf354168e&site=eds-live&scope=site&authtype=guest&custid=s3911979&groupid=main&profile=eds">CITE</a> 
+</p>
 
-<blockquote>
-  <span>
-      <a href="../pubs/icse21-src">MUTAGEN: Faster Mutation-Based Random Testing (extended abstract)</a>
-  </span>
+<p>
+  <a href="../pubs/tfp20">BinderAnn: Automated Reification of Source Annotations for Monadic EDSLs</a>
+  <br />Agustín Mista and Alejandro Russo
+  <br />21st International Symposium on Trends in Functional Programming (2020)
+  
   <br />
-  Agustín Mista
-  <br />
-  43rd International Conference on Software Engineering (Student Research Competition) (2021)
-  <br />
-   [<a href="../assets/pdf/icse21-src.pdf">PDF</a>] 
-   [<a href="https://ieeexplore.ieee.org/abstract/document/9402642">cite</a>] 
-</blockquote>
+    <a role="button" class="secondary" href="../assets/pdf/tfp20.pdf">PDF</a> 
+   <a role="button" class="secondary" href="https://link.springer.com/chapter/10.1007/978-3-030-57761-2_2">CITE</a> 
+</p>
 
-<blockquote>
-  <span>
-      <a href="../pubs/plas20">Short Paper: Weak Runtime-Irrelevant Typing for Security</a>
-  </span>
+<p>
+  <a href="../pubs/ifl19">Deriving Compositional Random Generators</a>
+  <br />Agustín Mista and Alejandro Russo
+  <br />31st Symposium on Implementation and Application of Functional Languages (2019)
+  
   <br />
-  Matthías Páll Gissurarson and Agustín Mista
-  <br />
-  ACM SIGSAC 15th Workshop on Programming Languages and Analysis for Security (2020)
-  <br />
-   [<a href="../assets/pdf/plas20.pdf">PDF</a>] 
-   [<a href="https://dl.acm.org/doi/10.1145/3411506.3417595">cite</a>] 
-</blockquote>
+    <a role="button" class="secondary" href="../assets/pdf/ifl19.pdf">PDF</a> 
+   <a role="button" class="secondary" href="https://dl.acm.org/doi/abs/10.1145/3412932.3412943">CITE</a> 
+</p>
 
-<blockquote>
-  <span>
-      <a href="../pubs/licentiate-chalmers">Automated Derivation of Random Generators for Algebraic Data Types</a>
-  </span>
+<p>
+  <a href="../pubs/ast19">Generating Random Structurally Rich Algebraic Data Type Values</a>
+  <br />Agustín Mista and Alejandro Russo
+  <br />14th IEEE/ACM International Workshop on Automation of Software Test (2019)
+  
   <br />
-  Agustín Mista
-  <br />
-  Chalmers University of Technology (2020). Licentiate thesis. 
-  <br />
-   [<a href="../assets/pdf/licentiate-chalmers.pdf">PDF</a>] 
-   [<a href="https://search.ebscohost.com/login.aspx?direct=true&db=ir01624a&AN=crp.038c338a.f005.419f.9698.b07bf354168e&site=eds-live&scope=site&authtype=guest&custid=s3911979&groupid=main&profile=eds">cite</a>] 
-</blockquote>
+    <a role="button" class="secondary" href="../assets/pdf/ast19.pdf">PDF</a> 
+   <a role="button" class="secondary" href="https://dl.acm.org/citation.cfm?id=3338669">CITE</a> 
+</p>
 
-<blockquote>
-  <span>
-      <a href="../pubs/tfp20">BinderAnn: Automated Reification of Source Annotations for Monadic EDSLs</a>
-  </span>
+<p>
+  <a href="../pubs/haskell18">Branching Processes for QuickCheck Generators</a>
+  <br />Agustín Mista, Alejandro Russo and John Hughes
+  <br />ACM SIGPLAN Haskell Symposium (2018)
+  
   <br />
-  Agustín Mista and Alejandro Russo
-  <br />
-  21st International Symposium on Trends in Functional Programming (2020)
-  <br />
-   [<a href="../assets/pdf/tfp20.pdf">PDF</a>] 
-   [<a href="https://link.springer.com/chapter/10.1007/978-3-030-57761-2_2">cite</a>] 
-</blockquote>
+    <a role="button" class="secondary" href="../assets/pdf/haskell18.pdf">PDF</a> 
+   <a role="button" class="secondary" href="https://dl.acm.org/citation.cfm?doid=3242744.3242747">CITE</a> 
+</p>
 
-<blockquote>
-  <span>
-      <a href="../pubs/ifl19">Deriving Compositional Random Generators</a>
-  </span>
+<p>
+  <a href="../pubs/lic-thesis">Modelando Generadores de Datos Aleatorios Mediante Procesos Estocásticos</a>
+  <br />Agustín Mista
+  <br />National University of Rosario (2018)
+   <br />Licentiate thesis (in Spanish) 
   <br />
-  Agustín Mista and Alejandro Russo
-  <br />
-  31st Symposium on Implementation and Application of Functional Languages (2019)
-  <br />
-   [<a href="../assets/pdf/ifl19.pdf">PDF</a>] 
-   [<a href="https://dl.acm.org/doi/abs/10.1145/3412932.3412943">cite</a>] 
-</blockquote>
+    <a role="button" class="secondary" href="../assets/pdf/lic-thesis.pdf">PDF</a> 
+   <a role="button" class="secondary" href="https://dcc.fceia.unr.edu.ar/es/lcc/tesinas-grado/tesinas/modelando-generadores-de-datos-aleatorios-mediante-procesos-estoc%C3%A1sticos%E2%80%8B">CITE</a> 
+</p>
 
-<blockquote>
-  <span>
-      <a href="../pubs/ast19">Generating Random Structurally Rich Algebraic Data Type Values</a>
-  </span>
+<p>
+  <a href="../pubs/jss17">QuickFuzz testing for fun and profit</a>
+  <br />Gustavo Grieco, Martin Ceresa, Agustín Mista and Pablo Buiras
+  <br />Journal of Systems and Software (2017)
+  
   <br />
-  Agustín Mista and Alejandro Russo
-  <br />
-  14th IEEE/ACM International Workshop on Automation of Software Test (2019)
-  <br />
-   [<a href="../assets/pdf/ast19.pdf">PDF</a>] 
-   [<a href="https://dl.acm.org/citation.cfm?id=3338669">cite</a>] 
-</blockquote>
+    <a role="button" class="secondary" href="../assets/pdf/jss17.pdf">PDF</a> 
+   <a role="button" class="secondary" href="https://dl.acm.org/citation.cfm?id=3163968">CITE</a> 
+</p>
 
-<blockquote>
-  <span>
-      <a href="../pubs/haskell18">Branching Processes for QuickCheck Generators</a>
-  </span>
-  <br />
-  Agustín Mista, Alejandro Russo and John Hughes
-  <br />
-  ACM SIGPLAN Haskell Symposium (2018)
-  <br />
-   [<a href="../assets/pdf/haskell18.pdf">PDF</a>] 
-   [<a href="https://dl.acm.org/citation.cfm?doid=3242744.3242747">cite</a>] 
-</blockquote>
+</article>
+	</main>
 
-<blockquote>
-  <span>
-      <a href="../pubs/lic-thesis">Modelando Generadores de Datos Aleatorios Mediante Procesos Estocásticos</a>
-  </span>
-  <br />
-  Agustín Mista
-  <br />
-  National University of Rosario (2018). Licentiate thesis (in Spanish). 
-  <br />
-   [<a href="../assets/pdf/lic-thesis.pdf">PDF</a>] 
-   [<a href="https://dcc.fceia.unr.edu.ar/es/lcc/tesinas-grado/tesinas/modelando-generadores-de-datos-aleatorios-mediante-procesos-estoc%C3%A1sticos%E2%80%8B">cite</a>] 
-</blockquote>
-
-<blockquote>
-  <span>
-      <a href="../pubs/jss17">QuickFuzz testing for fun and profit</a>
-  </span>
-  <br />
-  Gustavo Grieco, Martin Ceresa, Agustín Mista and Pablo Buiras
-  <br />
-  Journal of Systems and Software (2017)
-  <br />
-   [<a href="../assets/pdf/jss17.pdf">PDF</a>] 
-   [<a href="https://dl.acm.org/citation.cfm?id=3163968">cite</a>] 
-</blockquote>
-
-			</div>
-		</div>
-	</div>
-
-	<!-- Footer -->
-	<div class="footer">
-		<div class="container">
-			Powered by <a href="https://jaspervdj.be/hakyll">Hakyll</a>
-		</div>
-	</div>
+	<footer class="container">
+		Built using
+		<a href="https://jaspervdj.be/hakyll">Hakyll</a> and
+		<a href="https://picocss.com/">Pico CSS</a> •
+		<a href="https://github.com/agustinmista/website">Source code.</a>
+	</footer>
 
 </body>
 

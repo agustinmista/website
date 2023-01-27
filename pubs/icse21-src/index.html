@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<!-- head -->
+<html lang="en" data-theme="dark">
 
 <head>
 	<meta charset="utf-8">
@@ -19,60 +17,54 @@
 	<title>Agustín Mista</title>
 </head>
 
-<!-- body -->
-
 <body>
 
-	<!-- Header -->
-	<div class="header">
-		<div class="container">
-			<h1 class="header-heading"><a href="../../" style="color: inherit;">Agustín Mista</a></h1>
+	<header class="container">
+		<hgroup>
+			<h2><a href="../../">Agustín Mista</a></h2>
+			<h3>
+				<i>
+					// Ph.D. Student at Chalmers<br />
+					// Lead Software Engineer at DPella
+				</i>
+			</h3>
+		</hgroup>
+		<div class="grid">
+			<button class="secondary" onclick="window.location.href='/pubs'">Publications</button>
+			<button class="secondary" onclick="window.location.href='/blog'">Blog</button>
+			<button class="secondary" onclick="window.location.href='/teaching'">Teaching</button>
+			<button class="secondary" onclick="window.location.href='/about'">About</button>
+			<button class="secondary" onclick="window.location.href='/contact'">Contact</button>
 		</div>
-	</div>
+	</header>
 
-	<!-- NavBar -->
-	<div class="nav-bar">
-		<div class="container">
-			<ul class="nav">
-				<li><a href="../../">Home</a></li>
-				<li><a href="../../pubs">Publications</a></li>
-				<li><a href="../../blog">Blog</a></li>
-				<li><a href="../../teaching">Teaching</a></li>
-				<li><a href="../../about">About</a></li>
-				<li><a href="../../contact">Contact</a></li>
-			</ul>
-		</div>
-	</div>
+	<main class="container">
+		<article>
+  <header>
+    <h2>MUTAGEN: Faster Mutation-Based Random Testing (extended abstract)</h2>
+    <p>
+      Agustín Mista
+      <br /> 43rd International Conference on Software Engineering (Student Research Competition) (2021)
+      
+    </p>
+  </header>
 
-	<!-- Content -->
-	<div class="content">
-		<div class="container">
-			<div class="main">
-				<article>
-    <h1>MUTAGEN: Faster Mutation-Based Random Testing (extended abstract)</h1>
-    <section class="italic">Agustín Mista</section>
-    <br />
-    43rd International Conference on Software Engineering (Student Research Competition). 2021. 
-    <hr>
-    <h2>Abstract</h2>
-    <section class="justified"><p>We present MUTAGEN, a fully automated mutation-oriented framework for property-based testing. Our tool uses novel heuristics to improve the performance of the testing loop, and it is capable of finding complex bugs within seconds. We evaluate MUTAGEN by generating random WebAssembly programs that we use to find bugs in a faulty validator.</p></section>
-    <section>
-        <span>
-             [<a href="../../assets/pdf/icse21-src.pdf">PDF</a>] 
-             [<a href="https://ieeexplore.ieee.org/abstract/document/9402642">cite</a>] 
-        </span>
-    </section>
+  <h3>Abstract</h3>
+  <p>We present MUTAGEN, a fully automated mutation-oriented framework for property-based testing. Our tool uses novel heuristics to improve the performance of the testing loop, and it is capable of finding complex bugs within seconds. We evaluate MUTAGEN by generating random WebAssembly programs that we use to find bugs in a faulty validator.</p>
+
+  <footer>
+      <a role="button" class="secondary" href="../../assets/pdf/icse21-src.pdf">PDF</a> 
+     <a role="button" class="secondary" href="https://ieeexplore.ieee.org/abstract/document/9402642">CITE</a> 
+  </footer>
 </article>
-			</div>
-		</div>
-	</div>
+	</main>
 
-	<!-- Footer -->
-	<div class="footer">
-		<div class="container">
-			Powered by <a href="https://jaspervdj.be/hakyll">Hakyll</a>
-		</div>
-	</div>
+	<footer class="container">
+		Built using
+		<a href="https://jaspervdj.be/hakyll">Hakyll</a> and
+		<a href="https://picocss.com/">Pico CSS</a> •
+		<a href="https://github.com/agustinmista/website">Source code.</a>
+	</footer>
 
 </body>
 

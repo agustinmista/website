@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<!-- head -->
+<html lang="en" data-theme="dark">
 
 <head>
 	<meta charset="utf-8">
@@ -19,43 +17,40 @@
 	<title>Agustín Mista</title>
 </head>
 
-<!-- body -->
-
 <body>
 
-	<!-- Header -->
-	<div class="header">
-		<div class="container">
-			<h1 class="header-heading"><a href="../../" style="color: inherit;">Agustín Mista</a></h1>
+	<header class="container">
+		<hgroup>
+			<h2><a href="../../">Agustín Mista</a></h2>
+			<h3>
+				<i>
+					// Ph.D. Student at Chalmers<br />
+					// Lead Software Engineer at DPella
+				</i>
+			</h3>
+		</hgroup>
+		<div class="grid">
+			<button class="secondary" onclick="window.location.href='/pubs'">Publications</button>
+			<button class="secondary" onclick="window.location.href='/blog'">Blog</button>
+			<button class="secondary" onclick="window.location.href='/teaching'">Teaching</button>
+			<button class="secondary" onclick="window.location.href='/about'">About</button>
+			<button class="secondary" onclick="window.location.href='/contact'">Contact</button>
 		</div>
-	</div>
+	</header>
 
-	<!-- NavBar -->
-	<div class="nav-bar">
-		<div class="container">
-			<ul class="nav">
-				<li><a href="../../">Home</a></li>
-				<li><a href="../../pubs">Publications</a></li>
-				<li><a href="../../blog">Blog</a></li>
-				<li><a href="../../teaching">Teaching</a></li>
-				<li><a href="../../about">About</a></li>
-				<li><a href="../../contact">Contact</a></li>
-			</ul>
-		</div>
-	</div>
+	<main class="container">
+		<article>
+  <header>
+    <h2>Modelando Generadores de Datos Aleatorios Mediante Procesos Estocásticos</h2>
+    <p>
+      Agustín Mista
+      <br /> National University of Rosario (2018)
+       <br /> Licentiate thesis (in Spanish) 
+    </p>
+  </header>
 
-	<!-- Content -->
-	<div class="content">
-		<div class="container">
-			<div class="main">
-				<article>
-    <h1>Modelando Generadores de Datos Aleatorios Mediante Procesos Estocásticos</h1>
-    <section class="italic">Agustín Mista</section>
-    <br />
-    National University of Rosario. 2018.  Licentiate thesis (in Spanish). 
-    <hr>
-    <h2>Abstract</h2>
-    <section class="justified"><p>El testing aleatorio de software es una de las técnicas de verificación más
+  <h3>Abstract</h3>
+  <p>El testing aleatorio de software es una de las técnicas de verificación más
 prolíferas de los últimos años. En la comunidad de Haskell, QuickCheck es sin
 lugar a dudas la herramienta de testing aleatorio más influyente. El
 desarrollador describe las propiedades que su sistema debe verificar, y
@@ -75,24 +70,21 @@ Junto a esto, se provee una implementación en Haskell de nuestras ideas, con la
 cual realizamos experimentos sobre sistemas de software existentes de diversa
 complejidad. Nuestros resultados indican mejoras importantes en el cubrimiento
 de código obtenido respecto de las herramientas presentes en el estado del arte
-en materia de testing aleatorio automático en Haskell.</p></section>
-    <section>
-        <span>
-             [<a href="../../assets/pdf/lic-thesis.pdf">PDF</a>] 
-             [<a href="https://dcc.fceia.unr.edu.ar/es/lcc/tesinas-grado/tesinas/modelando-generadores-de-datos-aleatorios-mediante-procesos-estoc%C3%A1sticos%E2%80%8B">cite</a>] 
-        </span>
-    </section>
-</article>
-			</div>
-		</div>
-	</div>
+en materia de testing aleatorio automático en Haskell.</p>
 
-	<!-- Footer -->
-	<div class="footer">
-		<div class="container">
-			Powered by <a href="https://jaspervdj.be/hakyll">Hakyll</a>
-		</div>
-	</div>
+  <footer>
+      <a role="button" class="secondary" href="../../assets/pdf/lic-thesis.pdf">PDF</a> 
+     <a role="button" class="secondary" href="https://dcc.fceia.unr.edu.ar/es/lcc/tesinas-grado/tesinas/modelando-generadores-de-datos-aleatorios-mediante-procesos-estoc%C3%A1sticos%E2%80%8B">CITE</a> 
+  </footer>
+</article>
+	</main>
+
+	<footer class="container">
+		Built using
+		<a href="https://jaspervdj.be/hakyll">Hakyll</a> and
+		<a href="https://picocss.com/">Pico CSS</a> •
+		<a href="https://github.com/agustinmista/website">Source code.</a>
+	</footer>
 
 </body>
 

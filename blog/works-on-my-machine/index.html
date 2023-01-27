@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<!-- head -->
+<html lang="en" data-theme="dark">
 
 <head>
 	<meta charset="utf-8">
@@ -19,44 +17,36 @@
 	<title>Agustín Mista</title>
 </head>
 
-<!-- body -->
-
 <body>
 
-	<!-- Header -->
-	<div class="header">
-		<div class="container">
-			<h1 class="header-heading"><a href="../../" style="color: inherit;">Agustín Mista</a></h1>
+	<header class="container">
+		<hgroup>
+			<h2><a href="../../">Agustín Mista</a></h2>
+			<h3>
+				<i>
+					// Ph.D. Student at Chalmers<br />
+					// Lead Software Engineer at DPella
+				</i>
+			</h3>
+		</hgroup>
+		<div class="grid">
+			<button class="secondary" onclick="window.location.href='/pubs'">Publications</button>
+			<button class="secondary" onclick="window.location.href='/blog'">Blog</button>
+			<button class="secondary" onclick="window.location.href='/teaching'">Teaching</button>
+			<button class="secondary" onclick="window.location.href='/about'">About</button>
+			<button class="secondary" onclick="window.location.href='/contact'">Contact</button>
 		</div>
-	</div>
+	</header>
 
-	<!-- NavBar -->
-	<div class="nav-bar">
-		<div class="container">
-			<ul class="nav">
-				<li><a href="../../">Home</a></li>
-				<li><a href="../../pubs">Publications</a></li>
-				<li><a href="../../blog">Blog</a></li>
-				<li><a href="../../teaching">Teaching</a></li>
-				<li><a href="../../about">About</a></li>
-				<li><a href="../../contact">Contact</a></li>
-			</ul>
-		</div>
-	</div>
+	<main class="container">
+		<article>
+  <header>
+    <h2>Works on my machine™</h2>
+    <p>Posted on 2022-12-12 </p>
+  </header>
 
-	<!-- Content -->
-	<div class="content">
-		<div class="container">
-			<div class="main">
-				<article>
-    <h1>Works on my machine™</h1>
-    <section class="italic-subheader">
-        Posted on 2022-12-12 
-        
-    </section>
-    <hr>
-    <section>
-        <p>I’ve been having issues compiling LaTeX projects that use Lhs2TeX+pdfTeX+BibTeX in a reproductible manner between my workstation and GitHub’s CI, and while there are a bunch of solutions for building LaTeX in CI and VSCode without much hassle, I couldn’t quite find the way to make them work with Lhs2Tex in the pipeline. To solve this, I decided to homogenize the build environment using a Docker image, the same one everywhere. This works pretty well but turned out to be a bit nuanced, so these are the instructions for future me.</p>
+  <section>
+    <p>I’ve been having issues compiling LaTeX projects that use Lhs2TeX+pdfTeX+BibTeX in a reproductible manner between my workstation and GitHub’s CI, and while there are a bunch of solutions for building LaTeX in CI and VSCode without much hassle, I couldn’t quite find the way to make them work with Lhs2Tex in the pipeline. To solve this, I decided to homogenize the build environment using a Docker image, the same one everywhere. This works pretty well but turned out to be a bit nuanced, so these are the instructions for future me.</p>
 <p>The setup consists of three parts:</p>
 <ol type="1">
 <li>A <a href="https://hub.docker.com/r/agustinmista/latex-lhs2tex">Docker image</a> with <code>texlive-full</code> and <code>lhs2tex</code> preinstalled. It gets built and deployed automatically to DockerHub using a <a href="https://github.com/agustinmista/latex-lhs2tex-docker/blob/main/.github/workflows/docker.yml">GitHub action</a>.</li>
@@ -198,21 +188,22 @@
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;triggerTaskOnSave.restart&quot;</span><span class="fu">:</span> <span class="kw">true</span></span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 <p>And that’s it. Next time we open the project, VSCode should ask us if we want to reopen it inside our build environment. Click “Yes” and carry on looking for those <code>missing $ inserted</code>.</p>
-    </section>
-    <hr>
-    <h2>Comments</h2>
-    <script src="https://utteranc.es/client.js" repo="agustinmista/website" issue-term="pathname" label="post" theme="github-light" crossorigin="anonymous" async></script>
-</article>
-			</div>
-		</div>
-	</div>
+  </section>
 
-	<!-- Footer -->
-	<div class="footer">
-		<div class="container">
-			Powered by <a href="https://jaspervdj.be/hakyll">Hakyll</a>
-		</div>
-	</div>
+  <footer>
+    <h2>Comments</h2>
+    <script src="https://utteranc.es/client.js" repo="agustinmista/website" issue-term="pathname" label="post" theme="dark-blue" crossorigin="anonymous" async>
+    </script>
+  </footer>
+</article>
+	</main>
+
+	<footer class="container">
+		Built using
+		<a href="https://jaspervdj.be/hakyll">Hakyll</a> and
+		<a href="https://picocss.com/">Pico CSS</a> •
+		<a href="https://github.com/agustinmista/website">Source code.</a>
+	</footer>
 
 </body>
 

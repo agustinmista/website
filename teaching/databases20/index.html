@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<!-- head -->
+<html lang="en" data-theme="dark">
 
 <head>
 	<meta charset="utf-8">
@@ -19,58 +17,52 @@
 	<title>Agustín Mista</title>
 </head>
 
-<!-- body -->
-
 <body>
 
-	<!-- Header -->
-	<div class="header">
-		<div class="container">
-			<h1 class="header-heading"><a href="../../" style="color: inherit;">Agustín Mista</a></h1>
+	<header class="container">
+		<hgroup>
+			<h2><a href="../../">Agustín Mista</a></h2>
+			<h3>
+				<i>
+					// Ph.D. Student at Chalmers<br />
+					// Lead Software Engineer at DPella
+				</i>
+			</h3>
+		</hgroup>
+		<div class="grid">
+			<button class="secondary" onclick="window.location.href='/pubs'">Publications</button>
+			<button class="secondary" onclick="window.location.href='/blog'">Blog</button>
+			<button class="secondary" onclick="window.location.href='/teaching'">Teaching</button>
+			<button class="secondary" onclick="window.location.href='/about'">About</button>
+			<button class="secondary" onclick="window.location.href='/contact'">Contact</button>
 		</div>
-	</div>
+	</header>
 
-	<!-- NavBar -->
-	<div class="nav-bar">
-		<div class="container">
-			<ul class="nav">
-				<li><a href="../../">Home</a></li>
-				<li><a href="../../pubs">Publications</a></li>
-				<li><a href="../../blog">Blog</a></li>
-				<li><a href="../../teaching">Teaching</a></li>
-				<li><a href="../../about">About</a></li>
-				<li><a href="../../contact">Contact</a></li>
-			</ul>
-		</div>
-	</div>
+	<main class="container">
+		<article>
+  <header>
+    <h2>TDA357/DIT621 Databases</h2>
+  </header>
 
-	<!-- Content -->
-	<div class="content">
-		<div class="container">
-			<div class="main">
-				<article>
-    <h1>TDA357/DIT621 Databases</h1>
-    <section class="italic-subheader">
-        
-    </section>
-    LP3 2020 <br>
-    Course responsible: Thomas Hallgren <br>
-    <a href="https://chalmers.instructure.com/courses/8724">Course main webpage</a>
-    <hr>
-    <section>
-        
-    </section>
+  <section>
+    Period: LP3 2020
+    <br />Role: Teaching Assistant
+    <br />Course responsible: Thomas Hallgren
+     <br /><br /> <a role="button" class="secondary" href="https://chalmers.instructure.com/courses/8724">Course webpage</a> 
+  </section>
+
+  <section>
+    
+  </section>
 </article>
-			</div>
-		</div>
-	</div>
+	</main>
 
-	<!-- Footer -->
-	<div class="footer">
-		<div class="container">
-			Powered by <a href="https://jaspervdj.be/hakyll">Hakyll</a>
-		</div>
-	</div>
+	<footer class="container">
+		Built using
+		<a href="https://jaspervdj.be/hakyll">Hakyll</a> and
+		<a href="https://picocss.com/">Pico CSS</a> •
+		<a href="https://github.com/agustinmista/website">Source code.</a>
+	</footer>
 
 </body>
 

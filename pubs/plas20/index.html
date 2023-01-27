@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<!-- head -->
+<html lang="en" data-theme="dark">
 
 <head>
 	<meta charset="utf-8">
@@ -19,61 +17,55 @@
 	<title>Agustín Mista</title>
 </head>
 
-<!-- body -->
-
 <body>
 
-	<!-- Header -->
-	<div class="header">
-		<div class="container">
-			<h1 class="header-heading"><a href="../../" style="color: inherit;">Agustín Mista</a></h1>
+	<header class="container">
+		<hgroup>
+			<h2><a href="../../">Agustín Mista</a></h2>
+			<h3>
+				<i>
+					// Ph.D. Student at Chalmers<br />
+					// Lead Software Engineer at DPella
+				</i>
+			</h3>
+		</hgroup>
+		<div class="grid">
+			<button class="secondary" onclick="window.location.href='/pubs'">Publications</button>
+			<button class="secondary" onclick="window.location.href='/blog'">Blog</button>
+			<button class="secondary" onclick="window.location.href='/teaching'">Teaching</button>
+			<button class="secondary" onclick="window.location.href='/about'">About</button>
+			<button class="secondary" onclick="window.location.href='/contact'">Contact</button>
 		</div>
-	</div>
+	</header>
 
-	<!-- NavBar -->
-	<div class="nav-bar">
-		<div class="container">
-			<ul class="nav">
-				<li><a href="../../">Home</a></li>
-				<li><a href="../../pubs">Publications</a></li>
-				<li><a href="../../blog">Blog</a></li>
-				<li><a href="../../teaching">Teaching</a></li>
-				<li><a href="../../about">About</a></li>
-				<li><a href="../../contact">Contact</a></li>
-			</ul>
-		</div>
-	</div>
+	<main class="container">
+		<article>
+  <header>
+    <h2>Short Paper: Weak Runtime-Irrelevant Typing for Security</h2>
+    <p>
+      Matthías Páll Gissurarson and Agustín Mista
+      <br /> ACM SIGSAC 15th Workshop on Programming Languages and Analysis for Security (2020)
+      
+    </p>
+  </header>
 
-	<!-- Content -->
-	<div class="content">
-		<div class="container">
-			<div class="main">
-				<article>
-    <h1>Short Paper: Weak Runtime-Irrelevant Typing for Security</h1>
-    <section class="italic">Matthías Páll Gissurarson and Agustín Mista</section>
-    <br />
-    ACM SIGSAC 15th Workshop on Programming Languages and Analysis for Security. 2020. 
-    <hr>
-    <h2>Abstract</h2>
-    <section class="justified"><p>Types indexed with extra type-level information are a powerful tool for statically enforcing domain-specific security properties. In many cases, this extra information is runtime-irrelevant, and so it can be completely erased at compile-time without degrading the performance of the compiled code. In practice, however, the added bureaucracy often disrupts the development process, as programmers must completely adhere to new complex constraints in order to even compile their code.</p>
-<p>In this work we present WRIT, a plugin for the GHC Haskell compiler that relaxes the type checking process in the presence of runtime-irrelevant constraints. In particular, WRIT can automatically coerce between runtime equivalent types, allowing users to run programs even in the presence of some classes of type errors. This allows us to gradually secure our code while still being able to compile at each step, separating security concerns from functional correctness. Moreover, we present a novel way to specify which types should be considered equivalent for the purpose of allowing the program to run, how ambiguity at the type level should be resolved and which constraints can be safely ignored and turned into warnings.</p></section>
-    <section>
-        <span>
-             [<a href="../../assets/pdf/plas20.pdf">PDF</a>] 
-             [<a href="https://dl.acm.org/doi/10.1145/3411506.3417595">cite</a>] 
-        </span>
-    </section>
+  <h3>Abstract</h3>
+  <p>Types indexed with extra type-level information are a powerful tool for statically enforcing domain-specific security properties. In many cases, this extra information is runtime-irrelevant, and so it can be completely erased at compile-time without degrading the performance of the compiled code. In practice, however, the added bureaucracy often disrupts the development process, as programmers must completely adhere to new complex constraints in order to even compile their code.</p>
+<p>In this work we present WRIT, a plugin for the GHC Haskell compiler that relaxes the type checking process in the presence of runtime-irrelevant constraints. In particular, WRIT can automatically coerce between runtime equivalent types, allowing users to run programs even in the presence of some classes of type errors. This allows us to gradually secure our code while still being able to compile at each step, separating security concerns from functional correctness. Moreover, we present a novel way to specify which types should be considered equivalent for the purpose of allowing the program to run, how ambiguity at the type level should be resolved and which constraints can be safely ignored and turned into warnings.</p>
+
+  <footer>
+      <a role="button" class="secondary" href="../../assets/pdf/plas20.pdf">PDF</a> 
+     <a role="button" class="secondary" href="https://dl.acm.org/doi/10.1145/3411506.3417595">CITE</a> 
+  </footer>
 </article>
-			</div>
-		</div>
-	</div>
+	</main>
 
-	<!-- Footer -->
-	<div class="footer">
-		<div class="container">
-			Powered by <a href="https://jaspervdj.be/hakyll">Hakyll</a>
-		</div>
-	</div>
+	<footer class="container">
+		Built using
+		<a href="https://jaspervdj.be/hakyll">Hakyll</a> and
+		<a href="https://picocss.com/">Pico CSS</a> •
+		<a href="https://github.com/agustinmista/website">Source code.</a>
+	</footer>
 
 </body>
 

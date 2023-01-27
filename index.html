@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<!-- head -->
+<html lang="en" data-theme="dark">
 
 <head>
 	<meta charset="utf-8">
@@ -19,97 +17,73 @@
 	<title>Agustín Mista</title>
 </head>
 
-<!-- body -->
-
 <body>
 
-	<!-- Header -->
-	<div class="header">
-		<div class="container">
-			<h1 class="header-heading"><a href="./" style="color: inherit;">Agustín Mista</a></h1>
+	<header class="container">
+		<hgroup>
+			<h2><a href="./">Agustín Mista</a></h2>
+			<h3>
+				<i>
+					// Ph.D. Student at Chalmers<br />
+					// Lead Software Engineer at DPella
+				</i>
+			</h3>
+		</hgroup>
+		<div class="grid">
+			<button class="secondary" onclick="window.location.href='/pubs'">Publications</button>
+			<button class="secondary" onclick="window.location.href='/blog'">Blog</button>
+			<button class="secondary" onclick="window.location.href='/teaching'">Teaching</button>
+			<button class="secondary" onclick="window.location.href='/about'">About</button>
+			<button class="secondary" onclick="window.location.href='/contact'">Contact</button>
 		</div>
-	</div>
+	</header>
 
-	<!-- NavBar -->
-	<div class="nav-bar">
-		<div class="container">
-			<ul class="nav">
-				<li><a href="./">Home</a></li>
-				<li><a href="./pubs">Publications</a></li>
-				<li><a href="./blog">Blog</a></li>
-				<li><a href="./teaching">Teaching</a></li>
-				<li><a href="./about">About</a></li>
-				<li><a href="./contact">Contact</a></li>
-			</ul>
-		</div>
-	</div>
-
-	<!-- Content -->
-	<div class="content">
-		<div class="container">
-			<div class="main">
-				<h3 id="welcome-to-my-webpage">Welcome to my webpage!</h3>
-<h1 id="blog">Blog</h1>
-<ul>
-<li>
-2023-01-15 - <a href="./blog/dymamic-jobs-github-actions">Creating CI jobs dynamically in GitHub</a>
-</li>
-<li>
-2023-01-14 - <a href="./blog/devcontainer-cabal-store">Persistent cabal store in Haskell devcontainers</a>
-</li>
-<li>
-2022-12-12 - <a href="./blog/works-on-my-machine">Works on my machine™</a>
-</li>
-<li>
-2022-11-30 - <a href="./blog/bibtool">Dusting the bookshelf</a>
-</li>
-<li>
-2022-11-25 - <a href="./blog/hello">Hello, world!</a>
-</li>
-<li>
-2018-06-03 - <a href="./blog/test">Syntax test</a>
-</li>
+	<main class="container">
+		<article>
+  <header>
+    <h2>Recent posts</h2>
+  </header>
+  <ul>
+  
+  <li>2023-01-15 - <a href="./blog/dymamic-jobs-github-actions">Creating CI jobs dynamically in GitHub</a></li>
+  
+  <li>2023-01-14 - <a href="./blog/devcontainer-cabal-store">Persistent cabal store in Haskell devcontainers</a></li>
+  
+  <li>2022-12-12 - <a href="./blog/works-on-my-machine">Works on my machine™</a></li>
+  
+  <li>2022-11-30 - <a href="./blog/bibtool">Dusting the bookshelf</a></li>
+  
+  <li>2022-11-25 - <a href="./blog/hello">Hello, world!</a></li>
+  
 </ul>
-<h1 id="publications">Publications</h1>
-<ul>
-<li>
-2021 - <a href="./pubs/icse21-src">MUTAGEN: Faster Mutation-Based Random Testing (extended abstract)</a>
-</li>
-<li>
-2020 - <a href="./pubs/plas20">Short Paper: Weak Runtime-Irrelevant Typing for Security</a>
-</li>
-<li>
-2020 - <a href="./pubs/licentiate-chalmers">Automated Derivation of Random Generators for Algebraic Data Types</a>
-</li>
-<li>
-2020 - <a href="./pubs/tfp20">BinderAnn: Automated Reification of Source Annotations for Monadic EDSLs</a>
-</li>
-<li>
-2019 - <a href="./pubs/ifl19">Deriving Compositional Random Generators</a>
-</li>
-<li>
-2019 - <a href="./pubs/ast19">Generating Random Structurally Rich Algebraic Data Type Values</a>
-</li>
-<li>
-2018 - <a href="./pubs/haskell18">Branching Processes for QuickCheck Generators</a>
-</li>
-<li>
-2018 - <a href="./pubs/lic-thesis">Modelando Generadores de Datos Aleatorios Mediante Procesos Estocásticos</a>
-</li>
-<li>
-2017 - <a href="./pubs/jss17">QuickFuzz testing for fun and profit</a>
-</li>
-</ul>
-			</div>
-		</div>
-	</div>
+</article>
 
-	<!-- Footer -->
-	<div class="footer">
-		<div class="container">
-			Powered by <a href="https://jaspervdj.be/hakyll">Hakyll</a>
-		</div>
-	</div>
+<article>
+  <header>
+    <h2>Recent publications</h2>
+  </header>
+  <ul>
+  
+  <li>2021 - <a href="./pubs/icse21-src">MUTAGEN: Faster Mutation-Based Random Testing (extended abstract)</a></li>
+  
+  <li>2020 - <a href="./pubs/plas20">Short Paper: Weak Runtime-Irrelevant Typing for Security</a></li>
+  
+  <li>2020 - <a href="./pubs/licentiate-chalmers">Automated Derivation of Random Generators for Algebraic Data Types</a></li>
+  
+  <li>2020 - <a href="./pubs/tfp20">BinderAnn: Automated Reification of Source Annotations for Monadic EDSLs</a></li>
+  
+  <li>2019 - <a href="./pubs/ifl19">Deriving Compositional Random Generators</a></li>
+  
+</ul>
+</article>
+	</main>
+
+	<footer class="container">
+		Built using
+		<a href="https://jaspervdj.be/hakyll">Hakyll</a> and
+		<a href="https://picocss.com/">Pico CSS</a> •
+		<a href="https://github.com/agustinmista/website">Source code.</a>
+	</footer>
 
 </body>
 
