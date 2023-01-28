@@ -12,7 +12,8 @@
 	<link rel="shortcut icon" href="../../assets/img/favicon.ico">
 	<link rel="stylesheet" href="../../css/style.css">
 
-	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<script async src="../../js/index.js"></script>
 
 	<title>Agustín Mista</title>
 </head>
@@ -20,22 +21,40 @@
 <body>
 
 	<header class="container">
-		<hgroup>
-			<h2><a href="../../">Agustín Mista</a></h2>
-			<h3>
-				<i>
-					// Ph.D. Student at Chalmers<br />
-					// Lead Software Engineer at DPella
-				</i>
-			</h3>
-		</hgroup>
-		<div class="grid">
-			<button class="secondary" onclick="window.location.href='/pubs'">Publications</button>
-			<button class="secondary" onclick="window.location.href='/blog'">Blog</button>
-			<button class="secondary" onclick="window.location.href='/teaching'">Teaching</button>
-			<button class="secondary" onclick="window.location.href='/about'">About</button>
-			<button class="secondary" onclick="window.location.href='/contact'">Contact</button>
+		<nav>
+			<ul>
+				<li>
+					<hgroup>
+						<h2><a href="../../">Agustín Mista</a></h2>
+						<h3>
+							<i>
+								// Ph.D. Student at Chalmers<br />
+								// Lead Software Engineer at DPella
+							</i>
+						</h3>
+					</hgroup>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a onclick="toggleLinks()" id="burger">
+						<svg viewBox="0 0 100 80" width="30" height="30">
+							<rect width="100" height="20"></rect>
+							<rect y="30" width="100" height="20"></rect>
+							<rect y="60" width="100" height="20"></rect>
+						</svg>
+					</a>
+				</li>
+			</ul>
+		</nav>
+
+		<div class="grid" id="links">
+			<button class="outline" onclick="window.location.href='/pubs'">Publications</button>
+			<button class="outline" onclick="window.location.href='/blog'">Blog</button>
+			<button class="outline" onclick="window.location.href='/teaching'">Teaching</button>
+			<button class="outline" onclick="window.location.href='/contact'">Contact</button>
 		</div>
+
 	</header>
 
 	<main class="container">
