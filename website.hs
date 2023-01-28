@@ -136,6 +136,13 @@ main = do
       compile compressCssCompiler
 
     ----------------------------------------
+    -- Javascript
+
+    match "js/*" $ do
+      route idRoute
+      compile copyFileCompiler
+
+    ----------------------------------------
     -- Templates
 
     match "templates/*" $ do
