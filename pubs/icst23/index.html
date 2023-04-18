@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Agustín Mista">
+	<meta name="robots" content="index, follow">
+	<meta name="Description" lang="en" content="Personal page">
+
+	<link rel="shortcut icon" href="../../assets/img/favicon.ico">
+	<link rel="stylesheet" href="../../css/style.css">
+
+	<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<script async src="../../js/index.js"></script>
+
+	<title>Agustín Mista</title>
+</head>
+
+<body>
+
+	<header class="container">
+		<nav>
+			<ul>
+				<li>
+					<hgroup>
+						<h2><a href="../../">Agustín Mista</a></h2>
+						<h3>
+							<i>
+								// Ph.D. Candidate at Chalmers<br />
+								// Lead Software Engineer at DPella
+							</i>
+						</h3>
+					</hgroup>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a class="primary" id="burger">
+						<svg viewBox="0 0 100 200" width="50" height="50">
+							<rect y="0" width="100" height="15" rx="5"></rect>
+							<rect y="30" width="100" height="15" rx="5"></rect>
+							<rect y="60" width="100" height="15" rx="5"></rect>
+						</svg>
+					</a>
+				</li>
+			</ul>
+		</nav>
+		<div class="grid" id="links">
+			<button class="outline" onclick="window.location.href='/pubs'">Publications</button>
+			<button class="outline" onclick="window.location.href='/blog'">Blog</button>
+			<button class="outline" onclick="window.location.href='/teaching'">Teaching</button>
+			<button class="outline" onclick="window.location.href='/contact'">Contact</button>
+		</div>
+	</header>
+
+	<main class="container">
+		<article>
+  <header>
+    <h2>MUTAGEN: Reliable Coverage-Guided, Property-Based Testing using Exhaustive Mutations</h2>
+    <p>
+      Agustín Mista and Alejandro Russo
+      <br /> 16th IEEE International Conference on Software Testing, Verification and Validation (ICST) 2023 (2023)
+      
+    </p>
+  </header>
+
+  <h3>Abstract</h3>
+  <p>Automatically-synthesized random data generators are an appealing option when
+using property-based testing. There exists a variety of techniques that extract
+static information from the codebase to produce random test cases.
+Unfortunately, such techniques cannot enforce the complex invariants often
+needed to test properties with sparse preconditions.</p>
+<p>Coverage-guided, property-based testing (CGPT) tackles this limitation by
+enhancing synthesized generators with structure-preserving mutations guided by
+execution traces. Albeit effective, CGPT relies largely on randomness and
+exhibits poor scheduling, which can prevent bugs from being found.</p>
+<p>We present MUTAGEN, a CGPT framework that tackles such limitations by generating
+mutants exhaustively. Our tool incorporates heuristics that help to minimize
+scalability issues as well as cover the search space in a principled manner. Our
+evaluation shows that MUTAGEN not only outperforms existing CGPT tools but also
+finds previously unknown bugs in real-world software.</p>
+
+  <footer>
+    
+    
+  </footer>
+</article>
+	</main>
+
+	<footer class="container">
+		<small>
+			Built using
+			<a href="https://jaspervdj.be/hakyll">Hakyll</a> and
+			<a href="https://picocss.com/">Pico</a> •
+			<a href="https://github.com/agustinmista/website">Source code</a>
+		</small>
+	</footer>
+
+</body>
+
+</html>
