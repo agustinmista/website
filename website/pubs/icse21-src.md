@@ -9,4 +9,8 @@ cite:    https://ieeexplore.ieee.org/abstract/document/9402642
 date:    2021-05-27
 ---
 
-We present MUTAGEN, a fully automated mutation-oriented framework for property-based testing. Our tool uses novel heuristics to improve the performance of the testing loop, and it is capable of finding complex bugs within seconds. We evaluate MUTAGEN by generating random WebAssembly programs that we use to find bugs in a faulty validator.
+We present MUTAGEN, a fully automated mutation-oriented framework for
+property-based testing. Our tool uses novel heuristics to improve the
+performance of the testing loop, and it is capable of finding complex bugs
+within seconds. We evaluate MUTAGEN by generating random WebAssembly programs
+that we use to find bugs in a faulty validator.
