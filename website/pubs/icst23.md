@@ -2,8 +2,9 @@
 title:   "MUTAGEN: Reliable Coverage-Guided, Property-Based Testing using Exhaustive Mutations"
 authors: Agustín Mista and Alejandro Russo
 year:    2023
-venue:   16th IEEE International Conference on Software Testing, Verification and Validation (ICST) 2023
+venue:   16th IEEE International Conference on Software Testing, Verification and Validation
 type:    conference
+pdf:     /assets/pdf/icst23-preprint.pdf
 date:    2023-04-18
 ---
 
