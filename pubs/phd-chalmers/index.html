@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Agustín Mista">
+	<meta name="robots" content="index, follow">
+	<meta name="Description" lang="en" content="Personal page">
+
+	<link rel="shortcut icon" href="../../assets/img/favicon.ico">
+	<link rel="stylesheet" href="../../css/style.css">
+
+	<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<script async src="../../js/index.js"></script>
+
+	<title>Agustín Mista</title>
+</head>
+
+<body>
+
+	<header class="container">
+		<nav>
+			<ul>
+				<li>
+					<hgroup>
+						<h2><a href="../../">Agustín Mista</a></h2>
+						<h3>
+							<i>
+								// Ph.D. Candidate at Chalmers<br />
+								// Lead Software Engineer at DPella
+							</i>
+						</h3>
+					</hgroup>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a class="primary" id="burger">
+						<svg viewBox="0 0 100 200" width="50" height="50">
+							<rect y="0" width="100" height="15" rx="5"></rect>
+							<rect y="30" width="100" height="15" rx="5"></rect>
+							<rect y="60" width="100" height="15" rx="5"></rect>
+						</svg>
+					</a>
+				</li>
+			</ul>
+		</nav>
+		<div class="grid" id="links">
+			<button class="outline" onclick="window.location.href='/pubs'">Publications</button>
+			<button class="outline" onclick="window.location.href='/blog'">Blog</button>
+			<button class="outline" onclick="window.location.href='/teaching'">Teaching</button>
+			<button class="outline" onclick="window.location.href='/contact'">Contact</button>
+		</div>
+	</header>
+
+	<main class="container">
+		<article>
+  <header>
+    <h2>Language-Based Techniques and Stochastic Models for Automated Testing</h2>
+    <p>
+      Agustín Mista
+      <br /> Chalmers University of Technology (2023)
+       <br /> Ph.D. thesis 
+    </p>
+  </header>
+
+  <h3>Abstract</h3>
+  <p>As software systems become bigger and scarier, automating their testing is
+crucial to ensure that our confidence in them can keep up with their growth. In
+this setting, Generational Fuzzing and Random Property-Based Testing are two
+sides of the same testing technique that can help us find bugs effectively
+without having to spend countless hours writing unit tests by hand. They both
+rely on generating large amounts of random (possibly broken) test cases to be
+used as inputs to the system. Test cases that trigger issues such as crashes,
+memory leaks, or failed assertions are reported back to the developer for
+further investigation. Despite being fairly automatable, the Achilles heel of
+this technique lies in the quality of the randomly generated test cases, often
+requiring substantial manual work to tune the random generation process when the
+system under test expects inputs satisfying complex invariants.</p>
+<p>This thesis tackles this problem from the Programming Languages perspective,
+taking advantage of the richness of functional, statically-typed languages like
+Haskell to develop automated techniques for generating good-quality random test
+cases, as well as for automatically tuning the testing process in our favor. To
+this purpose, we rely on well-established ideas such as coverage-guided fuzzing,
+meta-programming, type-level programming, as well as novel interpretations of
+centuries-old statistical tools designed to study the evolution of populations
+such as branching processes. All these ideas are empirically validated using an
+extensive array of case studies and supported by a substantial number of
+real-world bugs discovered along the way.</p>
+
+  <footer>
+      <a role="button" class="secondary" href="../../assets/pdf/phd-chalmers.pdf">PDF</a> 
+     <a role="button" class="secondary" href="https://research.chalmers.se/en/publication/535733">CITE</a> 
+  </footer>
+</article>
+	</main>
+
+	<footer class="container">
+		<small>
+			Built using
+			<a href="https://jaspervdj.be/hakyll">Hakyll</a> and
+			<a href="https://picocss.com/">Pico</a> •
+			<a href="https://github.com/agustinmista/website">Source code</a>
+		</small>
+	</footer>
+
+</body>
+
+</html>
