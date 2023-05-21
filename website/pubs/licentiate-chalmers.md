@@ -6,7 +6,7 @@ type:    licentiate
 venue:   Chalmers University of Technology
 pdf:     /assets/pdf/licentiate-chalmers.pdf
 comment: Licentiate thesis
-cite:    https://search.ebscohost.com/login.aspx?direct=true&db=ir01624a&AN=crp.038c338a.f005.419f.9698.b07bf354168e&site=eds-live&scope=site&authtype=guest&custid=s3911979&groupid=main&profile=eds
+cite:    https://research.chalmers.se/en/publication/515535
 date:    2020-03-17
 ---
 
