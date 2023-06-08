@@ -5,6 +5,7 @@ year:    2023
 venue:   16th IEEE International Conference on Software Testing, Verification and Validation
 type:    conference
 pdf:     /assets/pdf/icst23-preprint.pdf
+cite:    https://ieeexplore.ieee.org/abstract/document/10132245
 date:    2023-04-18
 ---
 
