@@ -238,6 +238,16 @@ keyboards
 <p>So that’s my target, to write stuff often enough to keep alive my website’s CI cache :)</p>]]></summary>
 </entry>
 <entry>
+    <title>It's over</title>
+    <link href="https://www.mista.me/blog/itisover/index.html" />
+    <id>https://www.mista.me/blog/itisover/index.html</id>
+    <published>2023-06-19T00:00:00Z</published>
+    <updated>2023-06-19T00:00:00Z</updated>
+    <summary type="html"><![CDATA[<p>Today I’m thrilled to share that I succesfully defended my <a href="https://research.chalmers.se/en/publication/535733">Ph.D. thesis</a>!</p>
+<p><img src="https://www.mista.me/assets/img/thesis.jpg" style="width:50.0%" /></p>
+<p>My days at Chalmers are numbered. I will make them count!</p>]]></summary>
+</entry>
+<entry>
     <title>Syntax test</title>
     <link href="https://www.mista.me/blog/test/index.html" />
     <id>https://www.mista.me/blog/test/index.html</id>
