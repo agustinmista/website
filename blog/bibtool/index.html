@@ -138,10 +138,10 @@ Looking for peach: Found in bib/baz.bib!
 ...</code></pre>
 <p>And my curated <code>.bib</code> file now has “only” a little over 2000 lines of code ¯\_(ツ)_/¯</p>
 <p>You can find the bash script <a href="../assets/code/find_references.sh">here</a> in case you want to give it a try.</p>
-<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>This happens because <code>bibtool</code>’s <code>select</code> resource looks for <strong>all</strong> the entries whose keys <strong>contain</strong> the given key string. So, for instance, both keys <code>foo</code> and <code>foobar</code> will match with <code>foo</code>, possibly returning more than one entry per <code>find_ref</code>. If you know how to avoid this, please let me know!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>This happens because <code>bibtool</code>’s <code>select</code> resource looks for <strong>all</strong> the entries whose keys <strong>contain</strong> the given key string. So, for instance, both keys <code>foo</code> and <code>foobar</code> will match with <code>foo</code>, possibly returning more than one entry per <code>find_ref</code>. If you know how to avoid this, please let me know!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
   </section>

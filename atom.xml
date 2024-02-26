@@ -6,7 +6,9 @@
     <id>https://www.mista.me/atom.xml</id>
     <author>
         <name>Agustín Mista</name>
+        
         <email>agustin@mista.me</email>
+        
     </author>
     <updated>2022-11-30T00:00:00Z</updated>
     <entry>
@@ -90,10 +92,10 @@ Looking for peach: Found in bib/baz.bib!
 ...</code></pre>
 <p>And my curated <code>.bib</code> file now has “only” a little over 2000 lines of code ¯\_(ツ)_/¯</p>
 <p>You can find the bash script <a href="../assets/code/find_references.sh">here</a> in case you want to give it a try.</p>
-<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>This happens because <code>bibtool</code>’s <code>select</code> resource looks for <strong>all</strong> the entries whose keys <strong>contain</strong> the given key string. So, for instance, both keys <code>foo</code> and <code>foobar</code> will match with <code>foo</code>, possibly returning more than one entry per <code>find_ref</code>. If you know how to avoid this, please let me know!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>This happens because <code>bibtool</code>’s <code>select</code> resource looks for <strong>all</strong> the entries whose keys <strong>contain</strong> the given key string. So, for instance, both keys <code>foo</code> and <code>foobar</code> will match with <code>foo</code>, possibly returning more than one entry per <code>find_ref</code>. If you know how to avoid this, please let me know!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>]]></summary>
 </entry>
@@ -121,10 +123,10 @@ Looking for peach: Found in bib/baz.bib!
 <p>Where <code>cabal_store</code> is the name of the Docker volume to be created and <code>vscode</code> is the Linux user of this devcontainer. The <code>postCreateCommand</code> is there to make sure our container can access and modify the package store (only needed in case your devcontainer logs in to a user other than <code>root</code>). Repeat this for every Haskell devcontainer you want to share the cabal store with.</p></li>
 </ul>
 <p>That’s it! Signing off.</p>
-<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>Sadly, I found today this repo is getting deprecated in favor of <a href="https://containers.dev/">containers.dev</a>, and the latter doesn’t yet host any devcontainer definition for Haskell.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Sadly, I found today this repo is getting deprecated in favor of <a href="https://containers.dev/">containers.dev</a>, and the latter doesn’t yet host any devcontainer definition for Haskell.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>]]></summary>
 </entry>
@@ -438,7 +440,7 @@ method of specifying the pre-formatted text block).</p>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">// comment</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> <span class="st">&quot;Hello, World!</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> <span class="st">&quot;Hello, World!</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <hr />
@@ -512,10 +514,10 @@ document.</p>
 <p>Specify the name and type of the output file. The format is inferred from the suffix (file extension).</p>
 </dd>
 </dl>
-<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>This is a footnote.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>This is a footnote.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>]]></summary>
 </entry>
