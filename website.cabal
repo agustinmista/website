@@ -5,13 +5,13 @@ version:            0.1.0.0
 build-type:         Simple
 
 executable website
-  main-is:          
+  main-is:
     website.hs
   build-depends:
       base == 4.*
     , hakyll
     , filepath
-  ghc-options:      
+  ghc-options:
     -threaded
   default-language:
     Haskell2010

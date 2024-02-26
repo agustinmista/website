@@ -16,17 +16,16 @@ jobs:
       uses: xom9ikk/dotenv@v2
 
     - name: Setup Haskell
-      uses: haskell/actions/setup@v2
+      uses: haskell-actions/setup@v2
       with:
-        ghc-version: '9.0.2'
-        cabal-version: '3.8'
+        ghc-version: '9.4.2'
+        cabal-version: '3.8.1.0'
 
     - name: Initialize cabal
       run: |
         cabal update
         cabal clean
         cabal configure
-        cabal freeze
 
     - name: Restore cache
       uses: actions/cache@v2
