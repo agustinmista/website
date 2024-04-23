@@ -252,10 +252,13 @@ niceRoute = customRoute $ \ident ->
   takeBaseName (toFilePath ident) </>
   index
 
--- Look for an environment variable and raise an error if not defined
+-- Look for an environment variable, returning the empty string if not defined
 lookupEnvOrFail :: String -> IO String
 lookupEnvOrFail key = do
   mb <- lookupEnv key
   case mb of
-    Nothing -> error ("Missing environment variable: " <> key)
-    Just val -> return val
+    Nothing -> do
+      putStrLn $ "WARNING: missing environment variable " <> key
+      return ""
+    Just val -> do
+      return val
