@@ -17,10 +17,13 @@ jobs:
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Build packages
+        run: nix build --no-link .#print-website-vars .#website
+
       - name: Reify website variables
         run: nix run .#print-website-vars >> $GITHUB_ENV
 
-      - name: Build and run website builder
+      - name: Run website builder
         run: nix run .#website rebuild
 
       - name: Deploy to GitHub Pages
