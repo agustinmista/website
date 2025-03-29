@@ -1,14 +1,14 @@
-cabal-version:      2.2
+cabal-version: 3.4
 
-name:               website
-version:            0.1.0.0
-build-type:         Simple
+name: website
+version: 0.1.0.0
+build-type: Simple
 
 executable website
   main-is:
     website.hs
   build-depends:
-      base == 4.*
+      base == 4.18.*
     , hakyll
     , filepath
   ghc-options:

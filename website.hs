@@ -2,31 +2,30 @@
 
 import Control.Monad ((>=>))
 import Data.List (isSuffixOf)
-import System.FilePath ((</>), takeBaseName, takeDirectory)
-import System.Environment (lookupEnv)
-
 import Hakyll
+import System.Environment (lookupEnv)
+import System.FilePath (takeBaseName, takeDirectory, (</>))
+
 
 ----------------------------------------
 -- Site builder
 
 main :: IO ()
 main = do
-  websiteUrl <- lookupEnvOrFail "WEBSITE_URL"
-  hakyllWith defaultConfiguration { providerDirectory = "website" } $ do
-
+  websiteUrl <- lookupEnvOrWarn "WEBSITE_URL"
+  hakyllWith defaultConfiguration{providerDirectory = "website"} $ do
     ----------------------------------------
     -- Index page
 
     match "index.html" $ do
       let ctx = defaultContext <> recentPubsContext 5 <> recentPostsContext 5
       route idRoute
-      compile $ do
+      compile $
         getResourceBody
-        >>= applyAsTemplate ctx
-        >>= loadAndApplyTemplate "templates/default.html" ctx
-        >>= cleanIndexUrls
-        >>= relativizeUrls
+          >>= applyAsTemplate ctx
+          >>= loadAndApplyTemplate "templates/default.html" ctx
+          >>= cleanIndexUrls
+          >>= relativizeUrls
 
     ----------------------------------------
     -- Other standalone static pages without templates (about, contact, etc.)
@@ -34,11 +33,11 @@ main = do
     match "*.html" $ do
       let ctx = defaultContext
       route niceRoute
-      compile $ do
+      compile $
         getResourceBody
-        >>= loadAndApplyTemplate "templates/default.html" ctx
-        >>= cleanIndexUrls
-        >>= relativizeUrls
+          >>= loadAndApplyTemplate "templates/default.html" ctx
+          >>= cleanIndexUrls
+          >>= relativizeUrls
 
     ----------------------------------------
     -- Publications
@@ -46,22 +45,22 @@ main = do
     create ["pubs/index.html"] $ do
       let ctx = defaultContext <> allPubsContext
       route idRoute
-      compile $ do
+      compile $
         newItem
-        >>= loadAndApplyTemplate "templates/pub-archive.html" ctx
-        >>= loadAndApplyTemplate "templates/default.html"     ctx
-        >>= cleanIndexUrls
-        >>= relativizeUrls
+          >>= loadAndApplyTemplate "templates/pub-archive.html" ctx
+          >>= loadAndApplyTemplate "templates/default.html" ctx
+          >>= cleanIndexUrls
+          >>= relativizeUrls
 
     match "pubs/*" $ version "pub" $ do
       let ctx = defaultContext
       route niceRoute
-      compile $ do
+      compile $
         pandocCompiler
-        >>= loadAndApplyTemplate "templates/pub.html"     ctx
-        >>= loadAndApplyTemplate "templates/default.html" ctx
-        >>= cleanIndexUrls
-        >>= relativizeUrls
+          >>= loadAndApplyTemplate "templates/pub.html" ctx
+          >>= loadAndApplyTemplate "templates/default.html" ctx
+          >>= cleanIndexUrls
+          >>= relativizeUrls
 
     ----------------------------------------
     -- Blog
@@ -69,23 +68,23 @@ main = do
     create ["blog/index.html"] $ do
       let ctx = defaultContext <> allPostsContext
       route idRoute
-      compile $ do
+      compile $
         newItem
-        >>= loadAndApplyTemplate "templates/post-archive.html" ctx
-        >>= loadAndApplyTemplate "templates/default.html"      ctx
-        >>= cleanIndexUrls
-        >>= relativizeUrls
+          >>= loadAndApplyTemplate "templates/post-archive.html" ctx
+          >>= loadAndApplyTemplate "templates/default.html" ctx
+          >>= cleanIndexUrls
+          >>= relativizeUrls
 
     match "blog/*" $ version "post" $ do
       let ctx = defaultContext <> dateContext
       route niceRoute
-      compile $ do
+      compile $
         pandocCompiler
-        >>= saveSnapshot "content"
-        >>= loadAndApplyTemplate "templates/post.html"    ctx
-        >>= loadAndApplyTemplate "templates/default.html" ctx
-        >>= cleanIndexUrls
-        >>= relativizeUrls
+          >>= saveSnapshot "content"
+          >>= loadAndApplyTemplate "templates/post.html" ctx
+          >>= loadAndApplyTemplate "templates/default.html" ctx
+          >>= cleanIndexUrls
+          >>= relativizeUrls
 
     ----------------------------------------
     -- Teaching
@@ -93,22 +92,22 @@ main = do
     create ["teaching/index.html"] $ do
       let ctx = defaultContext <> allCoursesContext
       route idRoute
-      compile $ do
+      compile $
         newItem
-        >>= loadAndApplyTemplate "templates/course-archive.html" ctx
-        >>= loadAndApplyTemplate "templates/default.html"        ctx
-        >>= cleanIndexUrls
-        >>= relativizeUrls
+          >>= loadAndApplyTemplate "templates/course-archive.html" ctx
+          >>= loadAndApplyTemplate "templates/default.html" ctx
+          >>= cleanIndexUrls
+          >>= relativizeUrls
 
     match "teaching/*" $ version "course" $ do
       let ctx = defaultContext <> dateContext
       route niceRoute
-      compile $ do
+      compile $
         pandocCompiler
-        >>= loadAndApplyTemplate "templates/course.html"  ctx
-        >>= loadAndApplyTemplate "templates/default.html" ctx
-        >>= cleanIndexUrls
-        >>= relativizeUrls
+          >>= loadAndApplyTemplate "templates/course.html" ctx
+          >>= loadAndApplyTemplate "templates/default.html" ctx
+          >>= cleanIndexUrls
+          >>= relativizeUrls
 
     ----------------------------------------
     -- Atom RSS
@@ -116,10 +115,10 @@ main = do
     create ["atom.xml"] $ do
       let ctx = defaultContext <> postSnapshotsContext <> bodyField "description"
       route idRoute
-      compile $ do
+      compile $
         loadPostSnapshots
-        >>= traverse (absolutizeUrls websiteUrl)
-        >>= renderAtom (atomConfig websiteUrl) ctx
+          >>= traverse (absolutizeUrls websiteUrl)
+          >>= renderAtom (atomConfig websiteUrl) ctx
 
     ----------------------------------------
     -- Assets (images, pdfs, etc.)
@@ -153,13 +152,15 @@ main = do
 -- Atom feed configuration
 
 atomConfig :: String -> FeedConfiguration
-atomConfig websiteUrl = FeedConfiguration {
-  feedTitle = "Agustín Mista",
-  feedDescription = "This feed provides the latests posts from my personal website",
-  feedAuthorName = "Agustín Mista",
-  feedAuthorEmail = "agustin@mista.me",
-  feedRoot = websiteUrl
-}
+atomConfig websiteUrl =
+  FeedConfiguration
+    { feedTitle = "Agustín Mista"
+    , feedDescription = "This feed provides the latests posts from my personal website"
+    , feedAuthorName = "Agustín Mista"
+    , feedAuthorEmail = "agustin@mista.me"
+    , feedRoot = websiteUrl
+    }
+
 
 ----------------------------------------
 -- Resource loaders
@@ -167,14 +168,18 @@ atomConfig websiteUrl = FeedConfiguration {
 loadPubs :: Compiler [Item String]
 loadPubs = loadAll ("pubs/*" .&&. hasVersion "pub")
 
+
 loadPosts :: Compiler [Item String]
 loadPosts = loadAll ("blog/*" .&&. hasVersion "post")
+
 
 loadPostSnapshots :: Compiler [Item String]
 loadPostSnapshots = loadAllSnapshots ("blog/*" .&&. hasVersion "post") "content"
 
+
 loadCourses :: Compiler [Item String]
 loadCourses = loadAll ("teaching/*" .&&. hasVersion "course")
+
 
 ----------------------------------------
 -- Contexts
@@ -184,6 +189,7 @@ loadCourses = loadAll ("teaching/*" .&&. hasVersion "course")
 dateContext :: Context String
 dateContext = dateField "date" "%B %e, %Y"
 
+
 -- List contexts
 
 mkListContext :: String -> Compiler [Item String] -> Maybe Int -> Context a
@@ -192,32 +198,42 @@ mkListContext name loader mbn = do
     items <- recentFirst =<< loader
     return (maybe items (`take` items) mbn)
 
+
 postsContext :: Maybe Int -> Context String
 postsContext = mkListContext "posts" loadPosts
+
 
 postSnapshotsContext :: Context String
 postSnapshotsContext = mkListContext "post_snapshots" loadPostSnapshots Nothing
 
+
 pubsContext :: Maybe Int -> Context String
 pubsContext = mkListContext "pubs" loadPubs
+
 
 coursesContext :: Maybe Int -> Context String
 coursesContext = mkListContext "courses" loadCourses
 
+
 allPostsContext :: Context String
 allPostsContext = postsContext Nothing
+
 
 allPubsContext :: Context String
 allPubsContext = pubsContext Nothing
 
+
 allCoursesContext :: Context String
 allCoursesContext = coursesContext Nothing
+
 
 recentPostsContext :: Int -> Context String
 recentPostsContext n = postsContext (Just n)
 
+
 recentPubsContext :: Int -> Context String
 recentPubsContext n = pubsContext (Just n)
+
 
 ----------------------------------------
 -- Helpers
@@ -225,14 +241,17 @@ recentPubsContext n = pubsContext (Just n)
 index :: String
 index = "index.html"
 
+
 -- Create a new empty item
-newItem :: Monoid m => Compiler (Item m)
+newItem :: (Monoid m) => Compiler (Item m)
 newItem = makeItem mempty
+
 
 -- Make a relative URL absolute given a base domain
 -- (only used when creating atom feed)
 absolutizeUrls :: String -> Item String -> Compiler (Item String)
 absolutizeUrls domain item = return (fmap (relativizeUrlsWith domain) item)
+
 
 -- Remove the last index.html from a URL
 -- E.g.: /foo/bar/index.html --> /foo/bar
@@ -242,19 +261,21 @@ cleanIndexUrls item = return (fmap (withUrls cleanIndex) item)
   where
     cleanIndex url
       | index `isSuffixOf` url = take (length url - length index - 1) url
-      | otherwise              = url
+      | otherwise = url
+
 
 -- Route an URL through a subfolder and an index file inside
 -- E.g.: /foo/bar.md --> /foo/bar/index.html
 niceRoute :: Routes
 niceRoute = customRoute $ \ident ->
-  takeDirectory (toFilePath ident) </>
-  takeBaseName (toFilePath ident) </>
-  index
+  takeDirectory (toFilePath ident)
+    </> takeBaseName (toFilePath ident)
+    </> index
+
 
 -- Look for an environment variable, returning the empty string if not defined
-lookupEnvOrFail :: String -> IO String
-lookupEnvOrFail key = do
+lookupEnvOrWarn :: String -> IO String
+lookupEnvOrWarn key = do
   mb <- lookupEnv key
   case mb of
     Nothing -> do

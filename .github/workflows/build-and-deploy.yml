@@ -2,57 +2,30 @@ name: Build website and deploy
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
 
-    - name: Clone repository
-      uses: actions/checkout@v3
+      - name: Clone repository
+        uses: actions/checkout@v4
 
-    - name: Read environment variables
-      uses: xom9ikk/dotenv@v2
+      - name: Setup Nix
+        uses: cachix/install-nix-action@v31
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Setup Haskell
-      uses: haskell-actions/setup@v2
-      with:
-        ghc-version: '9.4.2'
-        cabal-version: '3.8.1.0'
+      - name: Reify website variables
+        run: nix run .#print-website-vars >> $GITHUB_ENV
 
-    - name: Initialize cabal
-      run: |
-        cabal update
-        cabal clean
-        cabal configure
+      - name: Build and run website builder
+        run: nix run .#website rebuild
 
-    - name: Restore cache
-      uses: actions/cache@v2
-      with:
-        path: |
-          ~/.cabal/store
-          dist-newstyle
-        key: ${{ runner.os }}-${{ hashFiles('cabal.project.freeze') }}-${{ github.sha }}
-        restore-keys: |
-          ${{ runner.os }}-${{ hashFiles('cabal.project.freeze') }}-${{ github.sha }}
-          ${{ runner.os }}-${{ hashFiles('cabal.project.freeze') }}-
-          ${{ runner.os }}-
-
-    - name: Install dependencies
-      run: cabal build --only-dependencies
-
-    - name: Compile website builder
-      run: cabal build all
-
-    - name: Build website
-      env:
-        WEBSITE_URL: ${{ env.SCHEME }}${{ env.DOMAIN }}
-      run: cabal exec website rebuild
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: _site
-        cname: ${{ env.DOMAIN }}
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: _site
+          cname: ${{ env.WEBSITE_DOMAIN }}
