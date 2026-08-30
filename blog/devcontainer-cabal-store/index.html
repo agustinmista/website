@@ -74,10 +74,10 @@
 <li><p>Mounting the package store to a <a href="https://code.visualstudio.com/remote/advancedcontainers/improve-performance#_use-a-targeted-named-volume">Docker named volume</a>.</p>
 <p>This is what I ended up doing, as it takes the least work and doesn’t clutter my host’s <code>$HOME</code>.</p>
 <p>The only changes needed are adding the following properties to <code>.devcontainer/devcontainer.json</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">&quot;mounts&quot;:</span> <span class="ot">[</span></span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;mounts&quot;</span><span class="er">:</span> <span class="ot">[</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;source=cabal_store,target=/home/vscode/.cabal/store,type=volume&quot;</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span><span class="er">,</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="er">&quot;postCreateCommand&quot;:</span> <span class="er">&quot;sudo</span> <span class="er">chown</span> <span class="er">vscode</span> <span class="er">/home/vscode/.cabal/store&quot;</span></span></code></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;postCreateCommand&quot;</span><span class="er">:</span> <span class="st">&quot;sudo chown vscode /home/vscode/.cabal/store&quot;</span></span></code></pre></div>
 <p>Where <code>cabal_store</code> is the name of the Docker volume to be created and <code>vscode</code> is the Linux user of this devcontainer. The <code>postCreateCommand</code> is there to make sure our container can access and modify the package store (only needed in case your devcontainer logs in to a user other than <code>root</code>). Repeat this for every Haskell devcontainer you want to share the cabal store with.</p></li>
 </ul>
 <p>That’s it! Signing off.</p>
