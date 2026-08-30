@@ -1,11 +1,17 @@
 $for(pubs)$
-<p>
-  <a href="$url$">$title$</a>
-  <br />$authors$
-  <br />$venue$ ($year$)
-  $if(comment)$ <br />$comment$ $endif$
-  <br />
-  $if(pdf)$  <a role="button" class="secondary" href="$pdf$">PDF</a> $endif$
-  $if(cite)$ <a role="button" class="secondary" href="$cite$">CITE</a> $endif$
-</p>
+<article>
+  <p>
+    <a href="$url$">$title$</a>
+    <br />
+    <b>$authors$</b>
+    <br />
+    $venue$ ($year$) $if(comment)$
+    <br />
+    $comment$ $endif$
+  </p>
+  <div role="group" style="width: 15%">
+    $if(pdf)$ <a role="button" class="primary" href="$pdf$">PDF</a> $endif$
+    $if(cite)$ <a role="button" class="secondary" href="$cite$">CITE</a> $endif$
+  </div>
+</article>
 $endfor$

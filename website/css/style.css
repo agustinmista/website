@@ -1,74 +1,99 @@
 @import "pico.min.css";
 @import "breezedark.css";
 
-/* Red Light scheme (Default) */
+```css
+/* =========================================================
+   Blue color scheme
+   ========================================================= */
+
+/* Blue color for light color scheme (Default) */
 /* Can be forced with data-theme="light" */
 [data-theme="light"],
-:root:not([data-theme="dark"]) {
-  --primary: #e53935;
-  --primary-hover: #d32f2f;
-  --primary-focus: rgba(229, 57, 53, 0.125);
-  --primary-inverse: #FFF;
+:root:not([data-theme="dark"]),
+:host:not([data-theme="dark"]) {
+  --pico-text-selection-color: rgba(37, 99, 235, 0.22);
+
+  --pico-primary: #2457c5;
+  --pico-primary-background: #2f6fe4;
+  --pico-primary-underline: rgba(36, 87, 197, 0.5);
+
+  --pico-primary-hover: #1d46a0;
+  --pico-primary-hover-background: #2457c5;
+
+  --pico-primary-focus: rgba(37, 99, 235, 0.4);
+  --pico-primary-inverse: #fff;
 }
 
-/* Red Dark scheme (Auto) */
+/* Blue color for dark color scheme (Auto) */
 /* Automatically enabled if user has Dark mode enabled */
 @media only screen and (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --primary: #e53935;
-    --primary-hover: #f44336;
-    --primary-focus: rgba(229, 57, 53, 0.25);
-    --primary-inverse: #FFF;
+  :root:not([data-theme]),
+  :host:not([data-theme]) {
+    --pico-text-selection-color: rgba(96, 165, 250, 0.2);
+
+    --pico-primary: #60a5fa;
+    --pico-primary-background: #2f6fe4;
+    --pico-primary-underline: rgba(96, 165, 250, 0.5);
+
+    --pico-primary-hover: #93c5fd;
+    --pico-primary-hover-background: #4080ed;
+
+    --pico-primary-focus: rgba(96, 165, 250, 0.35);
+    --pico-primary-inverse: #fff;
   }
 }
 
-/* Red Dark scheme (Forced) */
+/* Blue color for dark color scheme (Forced) */
 /* Enabled if forced with data-theme="dark" */
 [data-theme="dark"] {
-  --primary: #e53935;
-  --primary-hover: #f44336;
-  --primary-focus: rgba(229, 57, 53, 0.25);
-  --primary-inverse: #FFF;
+  --pico-text-selection-color: rgba(96, 165, 250, 0.2);
+
+  --pico-primary: #60a5fa;
+  --pico-primary-background: #2f6fe4;
+  --pico-primary-underline: rgba(96, 165, 250, 0.5);
+
+  --pico-primary-hover: #93c5fd;
+  --pico-primary-hover-background: #4080ed;
+
+  --pico-primary-focus: rgba(96, 165, 250, 0.35);
+  --pico-primary-inverse: #fff;
 }
 
-/* Red (Common styles) */
 :root {
-  --form-element-active-border-color: var(--primary);
-  --form-element-focus-color: var(--primary-focus);
-  --switch-color: var(--primary-inverse);
-  --switch-checked-background-color: var(--primary);
-  --spacing: 0.5rem;
-  --border-radius: 0rem;
+  /* Bigger border radius for all elements */
+  --pico-border-radius: 0.5rem;
 }
 
+/* Subtle blue gradient background */
+body {
+  min-height: 100vh;
+  margin: 0;
 
-/* :root { */
-  /* --primary: #e53935; */
-/* } */
-
-h2 a:hover {
-  text-decoration: none;
+  background:
+    radial-gradient(
+      2500px circle at 90% -10%,
+      rgba(47, 111, 228, 0.25),
+      transparent 50%
+    ),
+    radial-gradient(
+      2500px circle at -10% 110%,
+      rgba(47, 111, 228, 0.25),
+      transparent 50%
+    ),
+    #070c15;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  --typography-spacing-vertical: 0.5rem;
-}
-
-article {
-  --block-spacing-horizontal: calc(var(--spacing)*4);
+article,
+article > header,
+article > footer {
+  background: rgba(15, 35, 65, 0.9);
 }
 
 pre,
 div.sourceCode {
-  background-color: #0d1419;
+  background-color: #0d131d;
 }
 
-#links,
-#burger {
-  display: none;
+a {
+  --pico-text-decoration: none;
 }

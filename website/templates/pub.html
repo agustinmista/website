@@ -2,9 +2,10 @@
   <header>
     <h2>$title$</h2>
     <p>
-      $authors$
-      <br /> $venue$ ($year$)
-      $if(comment)$ <br /> $comment$ $endif$
+      <b>$authors$</b>
+      <br />
+      $venue$ ($year$) $if(comment)$ <br />
+      $comment$ $endif$
     </p>
   </header>
 
@@ -12,7 +13,10 @@
   $body$
 
   <footer>
-    $if(pdf)$  <a role="button" class="secondary" href="$pdf$">PDF</a> $endif$
-    $if(cite)$ <a role="button" class="secondary" href="$cite$">CITE</a> $endif$
+    <div role="group" style="width: 15%">
+      $if(pdf)$ <a role="button" class="primary" href="$pdf$">PDF</a> $endif$
+      $if(cite)$
+      <a role="button" class="secondary" href="$cite$">CITE</a> $endif$
+    </div>
   </footer>
 </article>
