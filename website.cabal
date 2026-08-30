@@ -8,7 +8,7 @@ executable website
   main-is:
     website.hs
   build-depends:
-      base == 4.18.*
+      base >= 4.20 && < 5
     , hakyll
     , filepath
   ghc-options:
