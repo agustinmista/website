@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Agustín Mista</title>
-    <subtitle><![CDATA[This feed provides the latests posts from my personal website]]></subtitle>
+    <subtitle><![CDATA[Latest posts from my personal website]]></subtitle>
     <link href="https://www.mista.me/atom.xml" rel="self" />
     <link href="https://www.mista.me" />
     <id>https://www.mista.me/atom.xml</id>
