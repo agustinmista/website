@@ -1,22 +1,21 @@
+<header>
+  <h3>$title$</h3>
+  <p>
+    <b>$authors$</b>
+    <br />
+    $venue$ ($year$) $if(comment)$ <br />
+    $comment$ $endif$
+  </p>
+</header>
+
 <article>
-  <header>
-    <h2>$title$</h2>
-    <p>
-      <b>$authors$</b>
-      <br />
-      $venue$ ($year$) $if(comment)$ <br />
-      $comment$ $endif$
-    </p>
-  </header>
-
-  <h3>Abstract</h3>
+  <h4>Abstract</h4>
   $body$
-
-  <footer>
-    <div role="group" style="width: 15%">
-      $if(pdf)$ <a role="button" class="primary" href="$pdf$">PDF</a> $endif$
-      $if(cite)$
-      <a role="button" class="secondary" href="$cite$">CITE</a> $endif$
-    </div>
-  </footer>
 </article>
+
+<footer>
+  <div role="group" style="width: 15%">
+    $if(pdf)$ <a role="button" class="primary" href="$pdf$">PDF</a> $endif$
+    $if(cite)$ <a role="button" class="secondary" href="$cite$">CITE</a> $endif$
+  </div>
+</footer>

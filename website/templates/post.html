@@ -1,22 +1,21 @@
+<header>
+  <h3>$title$</h3>
+  <p>Posted on $date$ $if(author)$ by $author$ $endif$</p>
+</header>
+
 <article>
-  <header>
-    <h2>$title$</h2>
-    <p>Posted on $date$ $if(author)$ by $author$ $endif$</p>
-  </header>
-
-  <section>
-    $body$
-  </section>
-
-  <footer>
-    <h2>Comments</h2>
-    <script
-      src="https://utteranc.es/client.js"
-      repo="agustinmista/website"
-      issue-term="pathname"
-      label="post"
-      theme="dark-blue"
-      crossorigin="anonymous" async>
-    </script>
-  </footer>
+  <section>$body$</section>
 </article>
+
+<footer>
+  <h3>Comments</h3>
+  <script
+    src="https://utteranc.es/client.js"
+    repo="agustinmista/website"
+    issue-term="pathname"
+    label="post"
+    theme="photon-dark"
+    crossorigin="anonymous"
+    async
+  ></script>
+</footer>

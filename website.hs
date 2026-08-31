@@ -15,11 +15,11 @@ main = do
   websiteUrl <- lookupEnvOrWarn "WEBSITE_URL"
   hakyllWith defaultConfiguration{providerDirectory = "website"} $ do
     -- Index page
-    match "index.html" $ do
+    match "index.md" $ do
       let ctx = defaultContext <> recentPubsContext 5 <> recentPostsContext 5
-      route idRoute
+      route (setExtension "html")
       compile
-        $ getResourceBody
+        $ pandocCompiler
           >>= applyAsTemplate ctx
           >>= loadAndApplyTemplate "templates/default.html" ctx
           >>= cleanIndexUrls
