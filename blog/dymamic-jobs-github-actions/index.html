@@ -23,13 +23,13 @@
         <ul>
           <li>
             <hgroup>
-              <h2><a href="../../">Agustín Mista</a></h2>
-              <h3>
+              <h1><a href="../../">Agustín Mista</a></h1>
+              <h2>
                 <i>
                   // Haskell Engineer at Tweag<br />
                   // Ph.D. in Computer Science
                 </i>
-              </h3>
+              </h2>
             </hgroup>
           </li>
         </ul>
@@ -61,14 +61,13 @@
       </div>
     </header>
 
-    <main class="container"><article>
-  <header>
-    <h2>Creating CI jobs dynamically in GitHub</h2>
-    <p>Posted on 2023-01-15 </p>
-  </header>
+    <main class="container"><header>
+  <h3>Creating CI jobs dynamically in GitHub</h3>
+  <p>Posted on 2023-01-15 </p>
+</header>
 
-  <section>
-    <p>This a neat trick I learnt the other day while I was writing some automation for my <a href="https://github.com/agustinmista/qmk_playground">out-of-tree QMK builder</a> project. There, I have firmware files for different keyboards in a folder called <code>keyboards</code>:</p>
+<article>
+  <section><p>This a neat trick I learnt the other day while I was writing some automation for my <a href="https://github.com/agustinmista/qmk_playground">out-of-tree QMK builder</a> project. There, I have firmware files for different keyboards in a folder called <code>keyboards</code>:</p>
 <pre><code>Makefile
 keyboards
   |-- preonic
@@ -156,15 +155,14 @@ keyboards
 <li><p>In <code>find-targets</code>, we need to create a JSON array of targets, e.g. <code>["preonic","thekey_v2"]</code>. For this, the <code>set-targets</code> step first lists the files under <code>keyboards</code> and progressively add them to an empty array using good ’ol <code>jq</code>. This array is then saved to the <code>GITHUB_OUTPUT</code> environment variable associated with this step. Finally, this job retrieves the targets from the output of the <code>set-targets</code> and assigns it to the job’s output <code>targets</code>. For reference, this is the new and cool way to do this now that <a href="https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/"><code>save-output</code> is getting deprecated</a>.</p></li>
 <li><p>In <code>build</code>, we define the build matrix by retrieving the <code>targets</code> variable from output of <code>find-targets</code>. GitHub will then run the <code>build</code> action once per target, instantiating the <code>matrix.KBD</code> variable with the current target name, which we use later to call <code>make</code> accordingly.</p></li>
 </ol>
-<p>With this in place, GitHub will create <code>build</code> jobs dinamycally on push, and there’s no need to hardcode build targets anywhere :)</p>
-  </section>
+<p>With this in place, GitHub will create <code>build</code> jobs dinamycally on push, and there’s no need to hardcode build targets anywhere :)</p></section>
+</article>
 
-  <footer>
-    <h2>Comments</h2>
-    <script src="https://utteranc.es/client.js" repo="agustinmista/website" issue-term="pathname" label="post" theme="dark-blue" crossorigin="anonymous" async>
-    </script>
-  </footer>
-</article></main>
+<footer>
+  <h3>Comments</h3>
+  <script src="https://utteranc.es/client.js" repo="agustinmista/website" issue-term="pathname" label="post" theme="photon-dark" crossorigin="anonymous" async></script>
+</footer>
+</main>
 
     <footer class="container">
       <small>
